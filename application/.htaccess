@@ -1,0 +1,3 @@
+RewriteEngine on
+RewriteCond $1 !^(index.php|public|user_guide|media|css|js|images|assets|pagina|robots.txt)
+RewriteRule ^(.*)$ /systelecoms/index.php?/$1 [L]
