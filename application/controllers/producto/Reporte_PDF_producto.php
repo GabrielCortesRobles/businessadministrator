@@ -40,9 +40,8 @@ class Reporte_PDF_producto extends CI_Controller
 		$pdf->cell(16,5,'MAYOREO',1,0);
 		$pdf->cell(20,5,'PIEZAS MM',1,0);
 		$pdf->cell(20,5,'PIEZAS MA',1,0);
-		$pdf->cell(15,5,'ACTIVO',1,0);
-		$pdf->cell(20,5,'FECHA',1,0);
-		$pdf->cell(20,5,'HORA',1,1);
+		$pdf->cell(15,5,'ACTIVO',1,1);
+		
 	
      
 		foreach($res as $obj)
@@ -58,9 +57,9 @@ class Reporte_PDF_producto extends CI_Controller
 			$pdf->cell(16,5,$obj->precio_mayoreo,1,0);
 			$pdf->cell(20,5,$obj->piezas_mayoreo,1,0);
 			$pdf->cell(20,5,$obj->piezas_mayoreo,1,0);
-			$pdf->cell(15,5,$obj->activo,1,0);
-			$pdf->cell(20,5,$obj->fecha,1,0);
-			$pdf->cell(20,5,$obj->hora,1,1);
+			$pdf->cell(15,5,$obj->activo,1,1);
+			//$pdf->cell(20,5,$obj->fecha,1,0);
+			//$pdf->cell(20,5,$obj->hora,1,1);
 	
 				
 			//$pdf -> Cell(40,5,$obj->Imagen,1,1);
