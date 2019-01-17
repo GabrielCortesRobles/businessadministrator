@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'systelecoms',
+	'hostname' => 'www.rodihsa.com',
+	'username' => 'rodihsa_user',
+	'password' => '$Y$T3L3C0M@',
+	'database' => 'rodihsa_systelecom',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

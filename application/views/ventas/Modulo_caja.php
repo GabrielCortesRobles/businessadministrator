@@ -23,13 +23,6 @@
 	<h2>Módulo Caja</h2>
 	</div>
 	<hr>
-	<div class="col-md-4 mb-3">
-		<label for="buscar">Buscar:</label>
-		<input type="text" class="form-control is-valid" name="buscar" id_venta="buscar" placeholder="ingrese el nombre a buscar">
-		<div class="valid-feedback">
-		Escriba el nombre del cliente, por favor.
-		</div>
-    </div>
 	<div class='container-fluid'>
 	<div class='row'>
 	<div class="col-md-8">

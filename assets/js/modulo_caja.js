@@ -18,7 +18,9 @@ $(document).ready(function(){
 					type: "POST", 	
 					success: function(result){
 						alert("cobro realizado con exito")
-						location.reload();
+						location.reload()
+						//ABRE UNA NUEVA VENTANA CON EL TICKET
+						window.open("http://localhost:8080/systelecoms/index.php/proveedor/Reporte_PDF_proveedor/ExportarPDF/");
 					}
 				});
 			}
