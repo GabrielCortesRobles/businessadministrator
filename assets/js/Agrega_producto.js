@@ -61,5 +61,4 @@ $(document).ready(function(){
 			$('#cambio_venta').val(new Intl.NumberFormat('es-MX').format(cambio_venta));
 		}
     });
-	
 });
