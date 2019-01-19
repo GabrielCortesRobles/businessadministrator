@@ -44,6 +44,11 @@ class Controller_caja extends CI_controller
 		$data['res']=$this->Model_caja->caja();
 		$data['res1']=$this->Model_caja->caja_detalle($id_venta);
 		$this->load->view("header/Header");
+		$this->load->view("producto/Modal_alta_producto");
+		$this->load->view("empleado/Modal_alta_empleado");
+		$this->load->view("proveedor/Modal_alta_proveedores");
+		$this->load->view("cliente/Modal_alta_cliente");
+		$this->load->view("ventas/Modal_editacaja");
 		$this->load->view("ventas/Modulo_caja",$data);
 		
 	}

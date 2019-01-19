@@ -36,8 +36,5 @@
 		</div>
 		<input type="text" class="form-control" value="<?php echo $res1[0]->id_venta?>" name="id_venta" id="id_venta" readonly hidden>
 	</div>
-	<div>
-		<input type="button" value="prueba" class="btn btn-outline-success" name='ventana' id="ventana"/>
-	</div>
 </div>
 </form>

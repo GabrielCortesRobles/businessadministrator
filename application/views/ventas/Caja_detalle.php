@@ -26,9 +26,8 @@
 			echo "<td>".$nom_producto."</td>";
 			echo "<td>".$cantidad."</td>";
 			echo "<td>$ ".$subtotal."</td>";
-			echo "<td><center><div class='row justify-content-center'><form action = '' method='POST'>
-					<button type='submit' class='btn btn-primary' >M</button>
-					</form>
+			echo "<td><center><div class='row justify-content-center'><form>
+					<input type='button' class='btn btn-primary' data-toggle='modal' data-target='#modal_editacaja' value='M' id='editacaja'>
 					<form action = 'http://localhost:8080/systelecoms/index.php/ventas/Controller_caja/eliminar_detalleventa/$id_detalle/$id_venta' method='POST'>
 					<button type='submit' class='btn btn-danger' >X</button>
 					</form></div></center></td>";

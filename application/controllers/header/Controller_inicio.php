@@ -128,6 +128,10 @@ class Controller_inicio extends CI_controller
 	public function modulo_caja()
 		{
 			$this->load->view("header/Header");
+			$this->load->view("producto/Modal_alta_producto");
+			$this->load->view("empleado/Modal_alta_empleado");
+			$this->load->view("proveedor/Modal_alta_proveedores");
+			$this->load->view("cliente/Modal_alta_cliente");
 			$this->load->view("ventas/Modulo_caja");
 		}
 }

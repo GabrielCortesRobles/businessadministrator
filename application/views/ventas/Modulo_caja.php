@@ -9,7 +9,6 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<?= base_url() ?>assets/css/bootstrap.min.css">
-        <script type = "text/javascript" src = "http://localhost:8080/systelecoms/assets/js/bootstrap.min.js"> </script> 
         <script type = "text/javascript" src = "http://localhost:8080/systelecoms/assets/js/jquery-3.3.1.js"> </script> 
         <script type = "text/javascript" src = "http://localhost:8080/systelecoms/assets/js/Agrega_producto.js"> </script> 
         <script type = "text/javascript" src = "http://localhost:8080/systelecoms/assets/js/modulo_caja.js"> </script> 
