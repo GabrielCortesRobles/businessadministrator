@@ -29,6 +29,9 @@ class Reporte_PDF_proveedor extends CI_Controller
 		//Reportes de todas las zonas que se encuentran disponibles en el .
 		$this->load->model("proveedor/Model_proveedor");
 		$res = $this->Model_proveedor->buscar_proveedor($id);
+		$pdf->cell(250,15,'REPORTE PROVEEDORES',0,1,'C');
+		$pdf->cell(50,10,'NOMBRE DE LA EMPRESA:',0,1);
+		$pdf->cell(50,15,'RAZON SOCIAL DE LA EMPRESA:',0,1);
 		$pdf->cell(10,5,'ID',1,0);
 		$pdf->cell(45,5,'RFC EMPRESA',1,0);
 		$pdf->cell(45,5,'NOM. EMPRESA',1,0);

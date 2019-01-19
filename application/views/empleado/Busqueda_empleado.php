@@ -56,7 +56,7 @@
 		$numero_interior=$object->numero_interior;
 		$numero_exterior=$object->numero_exterior;
 		$colonia=$object->colonia;
-		$municipio=$object->municipio;
+		$id_municipio=$object->id_municipio;
 		$cp=$object->cp;
 		$correo=$object->correo;
 		$telefono=$object->telefono;
@@ -100,7 +100,7 @@
 			echo "<td>".$object->numero_interior."</td>";
 			echo "<td>".$object->numero_exterior."</td>";
 			echo "<td>".$object->colonia."</td>";
-			echo "<td>".$object->municipio."</td>";
+			echo "<td>".$object->id_municipio."</td>";
 			echo "<td>".$object->cp."</td>";
 			echo "<td>".$object->correo."</td>";
 			echo "<td>".$object->telefono."</td>";

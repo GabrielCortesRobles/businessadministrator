@@ -12,10 +12,10 @@ class Model_empleado extends CI_Model
 		/*----------------------------------------------------Consulta para insertar empleado en la base de datos---------------------------------------------------------------*/
 		$sql = "insert into empleado 
 		(nom_empleado,ap_empleado,am_empleado,curp_empleado,rfc_empleado,fecha_nacimiento,calle,numero_interior,numero_exterior,
-		colonia,municipio,cp,correo,telefono,id_tipoempleado,sexo,activo,contrasena,privilegio_venta,privilegio_almacen,privilegio_caja,privilegio_admin,fecha_creacion)
+		colonia,id_municipio,cp,correo,telefono,id_tipoempleado,sexo,activo,contrasena,privilegio_venta,privilegio_almacen,privilegio_caja,privilegio_admin,fecha_creacion)
 		values 
 		('$nom_empleado','$ap_empleado','$am_empleado','$curp_empleado','$rfc_empleado','$fecha_nacimiento','$calle',
-		'$numero_interior','$numero_exterior','$colonia','$municipio','$cp','$correo','$telefono','$id_tipoempleado','$sexo','$activo','$contra',
+		'$numero_interior','$numero_exterior','$colonia','$id_municipio','$cp','$correo','$telefono','$id_tipoempleado','$sexo','$activo','$contra',
 		'$privilegio_venta','$privilegio_almacen','$privilegio_caja','0',NOW())";
 		$this->db->query($sql) OR DIE ("eRROR DE CONSULTA");
 		}
@@ -32,7 +32,7 @@ class Model_empleado extends CI_Model
 			emp.calle LIKE '%$id%' OR
 			emp.numero_interior LIKE '%$id%' OR
 			emp.colonia LIKE '%$id%' OR
-			emp.municipio LIKE '%$id%' OR
+			emp.id_municipio LIKE '%$id%' OR
 			emp.cp LIKE '%$id%' OR
 			emp.correo LIKE '%$id%' OR
 			emp.telefono LIKE '%$id%' OR
@@ -56,7 +56,7 @@ class Model_empleado extends CI_Model
 		/*----------------------------------------------------Consulta de empleado---------------------------------------------------------------*/
 			$sql = "SELECT e.id_empleado,e.rfc_empleado,e.nom_empleado,
 					e.ap_empleado,e.am_empleado,e.curp_empleado,e.fecha_nacimiento,
-					e.calle,e.numero_interior,e.numero_exterior,e.colonia,e.municipio,e.cp,e.correo,
+					e.calle,e.numero_interior,e.numero_exterior,e.colonia,e.id_municipio,e.cp,e.correo,
 					e.telefono,e.id_tipoempleado,t.tipo_empleado,e.sexo,e.activo,
 					e.contrasena
 					FROM empleado AS e, tipo_empleado AS t 

@@ -29,7 +29,9 @@ class Reporte_PDF_empleado extends CI_Controller
 		//Reportes de los empleados.
 		$this->load->model("empleado/Model_empleado");
 		$res = $this->Model_empleado->buscar_empleado($id);
-		$pdf->cell(50,15,'REPORTE EMPLEADO',2,1);
+		$pdf->cell(250,15,'REPORTE DE LOS EMPLEADOS',0,1,'C');
+		$pdf->cell(50,10,'NOMBRE DE LA EMPRESA:',0,1);
+		$pdf->cell(50,10,'RAZON SOCIAL DE LA EMPRESA:',0,1);
 		$pdf->cell(45,5,'RFC',1,0);
 		$pdf->cell(20,5,'No. Emp.',1,0);
 		$pdf->cell(50,5,'NOMBRE DEL EMPLEADO',1,0);
@@ -63,7 +65,7 @@ class Reporte_PDF_empleado extends CI_Controller
 			$pdf->cell(60,5,$obj->calle,1,0);
 			$pdf->cell(15,5,$obj->numero_exterior,1,0);
 			$pdf->cell(35,5,$obj->colonia,1,0);
-			$pdf->cell(35,5,$obj->municipio,1,0);
+			$pdf->cell(35,5,$obj->id_municipio,1,0);
 			$pdf->cell(15,5,$obj->cp,1,0);
 			$pdf->cell(80,5,$obj->correo,1,0);
 			$pdf->cell(25,5,$obj->telefono,1,0);

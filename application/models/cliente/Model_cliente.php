@@ -39,7 +39,7 @@ class Model_cliente extends CI_Model
 			fecha_nacimiento like '%$id%' or 
 			calle like '%$id%' or
 			colonia like '%$id%' or 
-			municipio like '%$id%' or 
+			id_municipio like '%$id%' or 
 			cp like '%$id%' or
 			correo like '%$id%' or 
 			telefono like '%$id%' or

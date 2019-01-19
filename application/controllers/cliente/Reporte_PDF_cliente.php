@@ -29,6 +29,9 @@ class Reporte_PDF_cliente extends CI_Controller
 		//Reportes de todas las zonas que se encuentran disponibles en el .
 		$this->load->model("cliente/Model_cliente");
 		$res = $this->Model_cliente->buscar_cliente($id);
+		$pdf->cell(250,15,'REPORTE DE LOS CLIENTES',0,1,'C');
+		$pdf->cell(50,10,'NOMBRE DE LA EMPRESA:',0,1);
+		$pdf->cell(50,15,'RAZON SOCIAL DE LA EMPRESA:',0,1);
 		$pdf->cell(20,5,'ID_CLIENTE',1,0);
 		$pdf->cell(25,5,'NOM. CLIENTE',1,0);
 		$pdf->cell(20,5,'AP. CLIENTE',1,0);
@@ -50,9 +53,9 @@ class Reporte_PDF_cliente extends CI_Controller
 			$pdf->cell(20,5,$obj->ap_cliente,1,0);
 			$pdf->cell(20,5,$obj->am_cliente,1,0);
 			$pdf->cell(25,5,$obj->calle,1,0);
-			$pdf->cell(25,5,$obj->num_calle,1,0);
+			$pdf->cell(25,5,$obj->numero_exterior,1,0);
 			$pdf->cell(30,5,$obj->colonia,1,0);
-			$pdf->cell(20,5,$obj->municipio,1,0);
+			$pdf->cell(20,5,$obj->id_municipio,1,0);
 			$pdf->cell(15,5,$obj->cp,1,0);
 			$pdf->cell(35,5,$obj->correo,1,0);
 			$pdf->cell(20,5,$obj->telefono,1,0);

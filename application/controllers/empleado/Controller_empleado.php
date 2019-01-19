@@ -16,7 +16,7 @@ class Controller_empleado extends CI_Controller
 			$numero_interior = $this->input->post('numero_interior');
 			$numero_exterior = $this->input->post('numero_exterior');
 			$colonia = $this->input->post('colonia');
-			$municipio = $this->input->post('municipio');
+			$id_municipio = $this->input->post('id_municipio');
 			$cp = $this->input->post('cp');
 			$correo = $this->input->post('correo');
 			$telefono = $this->input->post('telefono');

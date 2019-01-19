@@ -16,6 +16,14 @@
 		{
 			$this->db->where(['id_empresa'=>$id_empresa]);
 			$this->db->update('empresas',$datos);
-		}
+		
+	
+	public function empresa()
+	{
+		//Consulta de busqueda del producto en la base de datos
+		$sql ="SELECT * FROM empresas";	
+		$query = $this->db->query($sql);
+		return $query->result();
+	}
 	}
 ?>
