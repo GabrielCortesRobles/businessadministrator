@@ -78,6 +78,30 @@
 						</div>
 					</div>
 				</li>
+
+				<li class="nav-item">
+					<div class="dropdown">
+						<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<span class="glyphicon glyphicon-align-left" aria-hidden="true">Ventas</span>
+						</button>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+							<!-- Boton que direcciona a la vista de la busqueda de productos -->
+							<form class="form-inline my-2 my-lg-0" action='http://localhost:8080/systelecoms/index.php/ventas/Controller_reporteventas/ventasfecha' method='POST'>
+									<button class="dropdown-item" type="submit">Ventas por fecha</button>
+							</form>
+							<form class="form-inline my-2 my-lg-0" action='http://localhost:8080/systelecoms/index.php/header/Controller_inicio/tabla_clientes' method='POST'>
+									<button class="dropdown-item" type="submit">Ventas ultimo mes</button>
+							</form>
+							<form class="form-inline my-2 my-lg-0" action='http://localhost:8080/systelecoms/index.php/header/Controller_inicio/tabla_empleado' method='POST'>
+									<button class="dropdown-item" type="submit">Lista Empleados</button>
+							</form>
+							<form class="form-inline my-2 my-lg-0" action='http://localhost:8080/systelecoms/index.php/header/Controller_inicio/tabla_proveedor' method='POST'>
+									<button class="dropdown-item" type="submit">Lista Proveedor</button>
+							</form>
+						</div>
+					</div>
+				</li>
+
 				<li class="nav-item">
 					<!-- Boton que direcciona al modulo de ventas -->
 					<form class="form-inline my-2 my-lg-0" action='http://localhost:8080/systelecoms/index.php/header/Controller_inicio/venta' method='POST'>
