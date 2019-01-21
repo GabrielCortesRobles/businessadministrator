@@ -17,6 +17,7 @@ class Model_proveedor extends CI_Model
 			$sql ="SELECT * FROM proveedor
 			WHERE id_proveedor like '%$id%'or
 			rfc_proveedor like '%$id%' or
+			nom_empresa like '%$id%' or
 			direccion like '%$id%' or
 			correo like '%$id%' or
 			telefono like '%$id%' or
@@ -54,6 +55,13 @@ class Model_proveedor extends CI_Model
 			ultima_modificacion= NOW()
 			WHERE id_proveedor='$id_proveedor'";
 			$this->db->query($sql) OR DIE ("eRROR DE CONSULTA");
+		}
+		public function buscar_proveedor1()
+		{
+			//Consulta para buscar provedor en la base de datos
+			$sql ="SELECT nom_empresa, razon_social FROM empresas";	
+			$query = $this->db->query($sql);
+			return $query->result();
 		}
 }
 ?>

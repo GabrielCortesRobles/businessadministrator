@@ -58,7 +58,7 @@ class Model_producto extends CI_Model
 			$this->db->where(['id_producto'=>$id_producto]);
 			$this->db->update('producto',$datos);
 		}
-		public function empresa()
+		public function buscar_producto1()
 	{
 		//Consulta de busqueda del producto en la base de datos
 		$sql ="SELECT * FROM empresas";	

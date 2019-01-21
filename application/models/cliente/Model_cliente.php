@@ -89,5 +89,12 @@ class Model_cliente extends CI_Model
 			WHERE id_cliente='$id_cliente'";
 			$this->db->query($sql) OR DIE ("eRROR DE CONSULTA");
 		}
+		public function buscar_cliente1()
+		{
+			//Consulta para buscar provedor en la base de datos
+			$sql ="SELECT nom_empresa, razon_social FROM empresas";	
+			$query = $this->db->query($sql);
+			return $query->result();
+		}
 }
 ?>

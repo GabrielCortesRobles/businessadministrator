@@ -19,7 +19,7 @@ class Reporte_PDF_cliente extends CI_Controller
 		$pdf->SetKeywords('TCPDF, PDF, example, test, guide');   
 	
 		//Configurar fuente
-		$pdf->SetFont('times', 'B', 7, 'L', true);   
+		$pdf->SetFont('times', 'B', 20, 'L', true);   
 	
 		//Agregar página
 		$pdf->AddPage(); 
@@ -29,37 +29,38 @@ class Reporte_PDF_cliente extends CI_Controller
 		//Reportes de todas las zonas que se encuentran disponibles en el .
 		$this->load->model("cliente/Model_cliente");
 		$res = $this->Model_cliente->buscar_cliente($id);
-		$pdf->cell(250,15,'REPORTE DE LOS CLIENTES',0,1,'C');
-		$pdf->cell(50,10,'NOMBRE DE LA EMPRESA:',0,1);
-		$pdf->cell(50,15,'RAZON SOCIAL DE LA EMPRESA:',0,1);
-		$pdf->cell(20,5,'ID_CLIENTE',1,0);
-		$pdf->cell(25,5,'NOM. CLIENTE',1,0);
-		$pdf->cell(20,5,'AP. CLIENTE',1,0);
-		$pdf->cell(20,5,'AM. CLIENTE',1,0);
-		$pdf->cell(25,5,'CALLE',1,0);
-		$pdf->cell(25,5,'NUM. CALLE',1,0);
-		$pdf->cell(30,5,'COLONIA',1,0);
-		$pdf->cell(20,5,'MUNICIPIO',1,0);
-		$pdf->cell(15,5,'CP',1,0);
-		$pdf->cell(35,5,'CORREO',1,0);
+		$res2 = $this->Model_cliente->buscar_cliente1();
+		$pdf->Image('assets/images/Systelecom.png', '', '', 50, 25, '', '', '', false, 250, '', false, false, 1, false, false, false);
+		$pdf->cell(250,15,'REPORTE CLIENTES',0,1,'C');
+		$pdf->SetFont('times', 'B', 12, 'L', true);   
+	
+		 foreach($res2 as $obj)
+		 {
+			$pdf->cell(250,15,'',0,1,'C');
+			$pdf->cell(60,10,'NOMBRE DE LA EMPRESA: ',0,0);
+			$pdf->cell(50,10,$obj->nom_empresa,0,1);
+			$pdf->cell(60,15,'RAZON SOCIAL DE LA EMP: ',0,0);
+			$pdf->cell(50,15,$obj->razon_social,0,1);
+		 } 
+		
+		$pdf->SetFont('times', 'B', 9, 'L', true);   
+	
+		$pdf->cell(25,5,'ID_CLIENTE',1,0);
+		$pdf->cell(60,5,'NOMBRE DEL CLIENTE',1,0);
+		$pdf->cell(60,5,'DIRECCIÓN',1,0);
+		$pdf->cell(25,5,'CÓD.POST.',1,0);
+		$pdf->cell(50,5,'CORREO',1,0);
 		$pdf->cell(20,5,'TELEFONO',1,0);
-		$pdf->cell(12,5,'SEXO',1,0);
 		$pdf->cell(15,5,'ACTIVO',1,1);
 		 
 		foreach($res as $obj)
 		{
-			$pdf->cell(20,5,$obj->id_cliente,1,0);
-			$pdf->cell(25,5,$obj->nom_cliente,1,0);
-			$pdf->cell(20,5,$obj->ap_cliente,1,0);
-			$pdf->cell(20,5,$obj->am_cliente,1,0);
-			$pdf->cell(25,5,$obj->calle,1,0);
-			$pdf->cell(25,5,$obj->numero_exterior,1,0);
-			$pdf->cell(30,5,$obj->colonia,1,0);
-			$pdf->cell(20,5,$obj->id_municipio,1,0);
-			$pdf->cell(15,5,$obj->cp,1,0);
-			$pdf->cell(35,5,$obj->correo,1,0);
+			$pdf->cell(25,5,$obj->id_cliente,1,0);
+			$pdf->cell(60,5,$obj->nom_cliente.'  '.$obj->ap_cliente.'  '.$obj->am_cliente,1,0);
+			$pdf->cell(60,5,$obj->calle.' ,'.$obj->numero_exterior.' ,'.$obj->colonia,1,0);
+			$pdf->cell(25,5,$obj->cp,1,0);
+			$pdf->cell(50,5,$obj->correo,1,0);
 			$pdf->cell(20,5,$obj->telefono,1,0);
-			$pdf->cell(12,5,$obj->sexo,1,0);
 			$pdf->cell(15,5,$obj->activo,1,1);
 			
 			

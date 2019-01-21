@@ -25,7 +25,7 @@
       <th scope="col">ID</th>
       <th scope="col">RFC</th>
       <th scope="col">NOMBRE DE LA EMPESA</th>
-      <th scope="col">DIRECCIÓNx</th>
+      <th scope="col">DIRECCIÓN</th>
       <th scope="col">CORREO</th>
       <th scope="col">TELEFONO</th>
       <th scope="col">ACTIVO</th>

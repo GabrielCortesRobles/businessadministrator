@@ -102,5 +102,13 @@ class Model_empleado extends CI_Model
 		$this->db->query($sql) OR DIE ("eRROR DE CONSULTA");
 	}
 	
+	public function buscar_empleado1()
+		{
+			//Consulta para buscar provedor en la base de datos
+			$sql ="SELECT nom_empresa, razon_social FROM empresas";	
+			$query = $this->db->query($sql);
+			return $query->result();
+		}
+	
 }
 ?>
