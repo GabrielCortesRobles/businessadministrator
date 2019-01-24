@@ -19,6 +19,8 @@ class Controller_reporteventas extends CI_controller
         $fecha2 = $this->input->post('fecha2');
         $this->load->model('ventas/Model_ventasfecha');
         $data['res']=$this->Model_ventasfecha->buscarventas($fecha1,$fecha2);
+		$data['fecha1'] = $fecha1;
+		$data['fecha2'] = $fecha2;
         $this->load->view('ventas/Rventasfecha',$data);
     }
 
