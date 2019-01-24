@@ -15,5 +15,13 @@ class Model_ventasfecha extends CI_Model
             $res = $this->db->query($sql);
             return $res->result();
         }
+		
+		public function buscarventas1()
+		{
+			//Consulta para buscar provedor en la base de datos
+			$sql ="SELECT nom_empresa, razon_social FROM empresas";	
+			$query = $this->db->query($sql);
+			return $query->result();
+		}
 }
 ?>
