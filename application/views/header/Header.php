@@ -85,9 +85,9 @@
 							<span class="glyphicon glyphicon-align-left" aria-hidden="true">Ventas</span>
 						</button>
 						<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-							<!-- Boton que direcciona a la vista de la busqueda de productos -->
+							<!-- Boton que direcciona a las vistas de los reportes de las ventas realizadas -->
 							<form class="form-inline my-2 my-lg-0" action='http://localhost:8080/systelecoms/index.php/ventas/Controller_reporteventas/ventasfecha' method='POST'>
-									<button class="dropdown-item" type="submit">Ventas por fecha</button>
+									<button class="dropdown-item" type="submit">Por fecha especifica</button>
 							</form>
 							<form class="form-inline my-2 my-lg-0" action='http://localhost:8080/systelecoms/index.php/header/Controller_inicio/tabla_clientes' method='POST'>
 									<button class="dropdown-item" type="submit">Ventas ultimo mes</button>
@@ -95,8 +95,8 @@
 							<form class="form-inline my-2 my-lg-0" action='http://localhost:8080/systelecoms/index.php/header/Controller_inicio/tabla_empleado' method='POST'>
 									<button class="dropdown-item" type="submit">Lista Empleados</button>
 							</form>
-							<form class="form-inline my-2 my-lg-0" action='http://localhost:8080/systelecoms/index.php/header/Controller_inicio/tabla_proveedor' method='POST'>
-									<button class="dropdown-item" type="submit">Lista Proveedor</button>
+							<form class="form-inline my-2 my-lg-0" action='http://localhost:8080/systelecoms/index.php/header/Controller_reporteventas/hoy' method='POST'>
+									<button class="dropdown-item" type="submit">Hoy</button>
 							</form>
 						</div>
 					</div>
