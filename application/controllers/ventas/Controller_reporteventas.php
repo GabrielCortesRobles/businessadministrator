@@ -23,5 +23,32 @@ class Controller_reporteventas extends CI_controller
 		$data['fecha2'] = $fecha2;
         $this->load->view('ventas/Rventasfecha',$data);
     }
+	
+	public function ventasultimomes()
+		{
+			    $id = $this->input->post('id');
+				$this->load->model('ventas/Model_ventasfecha');
+				$data['res']=$this->Model_ventasfecha->ultimomes();
+				$data['id'] = $id;
+				$this->load->view("header/Header");
+				$this->load->view("proveedor/Modal_alta_proveedores");
+				$this->load->view("cliente/Modal_alta_cliente");
+				$this->load->view('ventas/Rventasultimomes',$data);
+			
+		}
+		
+	public function ventashoy()
+		{
+				 $id = $this->input->post('id');
+				$this->load->model('ventas/Model_ventasfecha');
+				$data['res']=$this->Model_ventasfecha->ventashoy();
+				$data['id'] = $id;
+				$this->load->view("header/Header");
+				$this->load->view("proveedor/Modal_alta_proveedores");
+				$this->load->view("cliente/Modal_alta_cliente");
+				$this->load->view('ventas/Rventashoy',$data);
+			
+		}
+	
 }
 ?>

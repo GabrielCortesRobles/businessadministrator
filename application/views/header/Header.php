@@ -89,11 +89,11 @@
 							<form class="form-inline my-2 my-lg-0" action='http://localhost:8080/systelecoms/index.php/ventas/Controller_reporteventas/ventasfecha' method='POST'>
 									<button class="dropdown-item" type="submit">Ventas por fecha</button>
 							</form>
-							<form class="form-inline my-2 my-lg-0" action='http://localhost:8080/systelecoms/index.php/header/Controller_inicio/tabla_clientes' method='POST'>
-									<button class="dropdown-item" type="submit">Ventas ultimo mes</button>
+							<form class="form-inline my-2 my-lg-0" action='http://localhost:8080/systelecoms/index.php/ventas/Controller_reporteventas/ventasultimomes' method='POST'>
+									<button class="dropdown-item" type="submit" name>Ventas ultimo mes</button>
 							</form>
-							<form class="form-inline my-2 my-lg-0" action='http://localhost:8080/systelecoms/index.php/header/Controller_inicio/tabla_empleado' method='POST'>
-									<button class="dropdown-item" type="submit">Lista Empleados</button>
+							<form class="form-inline my-2 my-lg-0" action='http://localhost:8080/systelecoms/index.php/ventas/Controller_reporteventas/ventashoy' method='POST'>
+									<button class="dropdown-item" type="submit">Ventas de HOY</button>
 							</form>
 							<form class="form-inline my-2 my-lg-0" action='http://localhost:8080/systelecoms/index.php/header/Controller_inicio/tabla_proveedor' method='POST'>
 									<button class="dropdown-item" type="submit">Lista Proveedor</button>
