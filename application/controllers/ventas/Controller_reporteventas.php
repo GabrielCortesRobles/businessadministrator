@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 class Controller_reporteventas extends CI_controller
 {
     //En esta funcion se mandan a llamar las vistas para el reporte de venta

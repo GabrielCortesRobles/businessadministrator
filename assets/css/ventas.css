@@ -1,0 +1,21 @@
+.apartado
+{
+    border-color: #e5e5e5;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-right-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-left-width: 1px;
+    border-left-style: solid;
+    background-color: #ffffff;
+    padding: 2em;
+    margin: 2rem;
+    border-radius: 2px;
+}
+
+.tableprods
+{
+    padding: 1em; 
+}

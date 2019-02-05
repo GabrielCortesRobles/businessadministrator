@@ -85,12 +85,16 @@
 							<span class="glyphicon glyphicon-align-left" aria-hidden="true">Ventas</span>
 						</button>
 						<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+<<<<<<< HEAD
 							<!-- Boton que direcciona a la vista de la busqueda de productos -->
 							<form class="form-inline my-2 my-lg-0" action='http://localhost:8080/systelecoms/index.php/ventas/Controller_reporteventas/ventashoy' method='POST'>
 									<button class="dropdown-item" type="submit">Ventas del día</button>
 							</form>
+=======
+							<!-- Boton que direcciona a las vistas de los reportes de las ventas realizadas -->
+>>>>>>> 2ceb5eee90716daff6ede12e6c400a5a45b1d5d8
 							<form class="form-inline my-2 my-lg-0" action='http://localhost:8080/systelecoms/index.php/ventas/Controller_reporteventas/ventasfecha' method='POST'>
-									<button class="dropdown-item" type="submit">Ventas por fecha</button>
+									<button class="dropdown-item" type="submit">Por fecha especifica</button>
 							</form>
 							<form class="form-inline my-2 my-lg-0" action='http://localhost:8080/systelecoms/index.php/ventas/Controller_reporteventas/ventasultimomes' method='POST'>
 									<button class="dropdown-item" type="submit" name>Ventas ultimo mes</button>
@@ -98,11 +102,16 @@
 							<form class="form-inline my-2 my-lg-0" action='http://localhost:8080/systelecoms/index.php/ventas/Controller_reporteventas/ventasultimoano' method='POST'>
 									<button class="dropdown-item" type="submit" name>Ventas ultimo año</button>
 							</form>
+<<<<<<< HEAD
 							<form class="form-inline my-2 my-lg-0" action='http://localhost:8080/systelecoms/index.php/ventas/Controller_reporteventas/ventasultimasemana' method='POST'>
 									<button class="dropdown-item" type="submit">Ventas de la semana</button>
 							</form>
 							<form class="form-inline my-2 my-lg-0" action='http://localhost:8080/systelecoms/index.php/ventas/Controller_reporteventas/ventaspendientes' method='POST'>
 									<button class="dropdown-item" type="submit">Ventas pendientes</button>
+=======
+							<form class="form-inline my-2 my-lg-0" action='http://localhost:8080/systelecoms/index.php/ventas/Controller_reporteventas/pendientes' method='POST'>
+									<button class="dropdown-item" type="submit">pendientes</button>
+>>>>>>> 2ceb5eee90716daff6ede12e6c400a5a45b1d5d8
 							</form>
 						</div>
 					</div>

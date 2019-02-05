@@ -1,9 +1,10 @@
 $(document).ready(function(){
 	$("#cobrar_venta").click(function(){
 		var id_venta=$("#id_venta").val();
-		var recibido_venta=$("#recibido_venta").val();
+		var recibido_venta=Number($("#recibido_venta").val());
+		var total=Number($("#total").val());
 		var cambio_venta=$("#cambio_venta").val();
-		if(cambio_venta == 0)
+		if(cambio_venta < total)
 		{
 			alert("Varifique la cantidad recibida, por favor");
 		}

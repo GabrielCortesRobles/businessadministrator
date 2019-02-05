@@ -42,16 +42,16 @@ $("#enviar_venta").click(function(){
 		
 	});
 	
-	$("#facturar").on("click", function(){
-	var facturar = document.getElementById('facturar');
-				if(facturar.checked ==true)
-				{
-					$("#cliente").removeAttr('hidden');
-				}
-				else
-				{
-					$("#cliente").attr('hidden',true);
-				}
+	$("#facturar").click(function(){
+		$("#cliente").removeAttr('hidden');
+		$("#nofacturar").removeAttr('hidden');
+		$("#facturar").attr('hidden',true);
+	});
+
+	$("#nofacturar").click(function(){
+		$("#cliente").attr('hidden',true);
+		$("#facturar").removeAttr('hidden',true);
+		$("#nofacturar").attr('hidden',true);
 	});
 	
 });

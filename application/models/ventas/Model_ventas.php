@@ -96,6 +96,15 @@ class Model_ventas extends CI_Model
 					$this->db->query($sql);	
 				}
 			}	
+		//--------------------------------Actualizar las existencias del producto---------------------------------------------------------	
+		public function actualizaproductos($productos)
+		{
+			foreach($productos as $filas)
+			{
+				$sql = "CALL actualizaexistencias('$filas->id_producto','$filas->cant');";
+				$this->db->query($sql) OR DIE ("eRROR DE CONSULTA");
+			}
+		}
 			
 		//---------------------------------------Busqueda de privilegios para el apartado de cobro en el modulo de venta --------------------------------------------------
 		public function privilegios($id)
