@@ -52,6 +52,7 @@ class Controller_ventas extends CI_controller
 				$this->load->model('ventas/Model_ventas');
 				$this->Model_ventas->insertar_venta($id_cliente,$id_empleado,$total,$recibido_venta,$cambio_venta,$estado);
 				$this->Model_ventas->insertar_detalleventa($productos);
+				$this->Model_ventas->actualizaproductos($productos);
 			
 			}
 	

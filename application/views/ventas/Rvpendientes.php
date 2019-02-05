@@ -17,7 +17,7 @@
 	<fieldset class='form'>
 		<br>
 	<div align='center'>
-	<h2>Módulo Caja</h2>
+	<h2>Ventas pendientes</h2>
 	</div>
 	<hr>
 	<div class='container-fluid'>
@@ -73,7 +73,6 @@
 <div class="col-md-4">
 	<?php
 	include('Caja_detalle.php');
-	include('Caja_cobro.php');
 	?>
 </div>
 </div>

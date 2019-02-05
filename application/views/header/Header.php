@@ -95,8 +95,8 @@
 							<form class="form-inline my-2 my-lg-0" action='http://localhost:8080/systelecoms/index.php/header/Controller_inicio/tabla_empleado' method='POST'>
 									<button class="dropdown-item" type="submit">Lista Empleados</button>
 							</form>
-							<form class="form-inline my-2 my-lg-0" action='http://localhost:8080/systelecoms/index.php/header/Controller_reporteventas/hoy' method='POST'>
-									<button class="dropdown-item" type="submit">Hoy</button>
+							<form class="form-inline my-2 my-lg-0" action='http://localhost:8080/systelecoms/index.php/ventas/Controller_reporteventas/pendientes' method='POST'>
+									<button class="dropdown-item" type="submit">pendientes</button>
 							</form>
 						</div>
 					</div>

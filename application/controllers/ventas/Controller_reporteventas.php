@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 class Controller_reporteventas extends CI_controller
 {
     //En esta funcion se mandan a llamar las vistas para el reporte de venta
@@ -25,7 +26,7 @@ class Controller_reporteventas extends CI_controller
     }
 
     //En esta funcion se realiza la busqueda para el reporte de ventas del dia de hoy
-    public function hoy($id_venta)
+    public function pendientes($id_venta)
 	{
 		$this->load->model('ventas/Model_caja');
 		$data['res']=$this->Model_caja->caja();
@@ -35,7 +36,7 @@ class Controller_reporteventas extends CI_controller
 		$this->load->view("empleado/Modal_alta_empleado");
 		$this->load->view("proveedor/Modal_alta_proveedores");
 		$this->load->view("cliente/Modal_alta_cliente");
-		$this->load->view("ventas/Rventashoy",$data);
+		$this->load->view("ventas/Rvpendientes",$data);
 		
 	}
 }
