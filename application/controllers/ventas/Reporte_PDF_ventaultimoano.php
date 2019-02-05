@@ -1,5 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-class Reporte_PDF_ventaspendientes extends CI_Controller
+class Reporte_PDF_ventaultimoano extends CI_Controller
 {
 	public function __construct()
 	{
@@ -14,7 +14,7 @@ class Reporte_PDF_ventaspendientes extends CI_Controller
 		//Información del Documento
 		$pdf->SetCreator(PDF_CREATOR);
 		$pdf->SetAuthor('systelecoms');
-		$pdf->SetTitle('Reporte_PDF_ventaultimasemana');
+		$pdf->SetTitle('Reporte_PDF_ventaaño');
 		$pdf->SetSubject('TCPDF Tutorial');
 		$pdf->SetKeywords('TCPDF, PDF, example, test, guide');   
 	
@@ -28,10 +28,10 @@ class Reporte_PDF_ventaspendientes extends CI_Controller
 
 		//Reportes de todas las zonas que se encuentran disponibles en el .
 		$this->load->model("ventas/Model_ventasfecha");
-		$res = $this->Model_ventasfecha->ultimasemana();
+		$res = $this->Model_ventasfecha->ultimoano();
 		$res2 = $this->Model_ventasfecha->buscarventas1();
 		$pdf->Image('assets/images/Systelecom.png', '', '', 50, 25, '', '', '', false, 250, '', false, false, 1, false, false, false);
-		$pdf->cell(250,15,'REPORTE VENTAS DE LA ULTIMA SEMANA',0,1,'C');
+		$pdf->cell(250,15,'REPORTE VENTAS DEL ULTIMO MES',0,1,'C');
 		$pdf->SetFont('times', 'B', 12, 'L', true);   
 	
 		 foreach($res2 as $obj)
@@ -82,7 +82,7 @@ class Reporte_PDF_ventaspendientes extends CI_Controller
 		}
 	
 		ob_end_clean();
-		$pdf -> Output('Reporte_PDF_ventaultimasemana.pdf', 'I');  	
+		$pdf -> Output('Reporte_PDF_ventaultimoaño.pdf', 'I');  	
     }
 }
 ?>

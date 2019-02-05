@@ -49,6 +49,51 @@ class Controller_reporteventas extends CI_controller
 				$this->load->view('ventas/Rventashoy',$data);
 			
 		}
+	public function ventasultimoano()
+		{
+			    $id = $this->input->post('id');
+				$this->load->model('ventas/Model_ventasfecha');
+				$data['res']=$this->Model_ventasfecha->ultimoano();
+				$data['id'] = $id;
+				$this->load->view("header/Header");
+				$this->load->view("proveedor/Modal_alta_proveedores");
+				$this->load->view("cliente/Modal_alta_cliente");
+				$this->load->view('ventas/Rventasultimoano',$data);
+			
+		}
+		
+		public function ventasultimasemana()
+		{
+			    $id = $this->input->post('id');
+				$this->load->model('ventas/Model_ventasfecha');
+				$data['res']=$this->Model_ventasfecha->ultimasemana();
+				$data['id'] = $id;
+				$this->load->view("header/Header");
+				$this->load->view("proveedor/Modal_alta_proveedores");
+				$this->load->view("cliente/Modal_alta_cliente");
+				$this->load->view('ventas/Rventasultimasemana',$data);
+			
+		}
+		
+			
+	public function ventaspendientes()
+	{
+		$id = $this->input->post('id');
+		$this->load->model('ventas/Model_ventasfecha');
+		$data['res']=$this->Model_ventasfecha->ventaspendientes();
+		$data['id'] = $id;
+		$this->load->view("header/Header");
+		$this->load->view("proveedor/Modal_alta_proveedores");
+		$this->load->view("cliente/Modal_alta_cliente");
+		$this->load->view('ventas/Rventas_pendientes',$data);
+	}
+	
+	public function eliminar_venta($id_venta)
+	{
+		$this->load->model('ventas/Model_ventasfecha');
+		$this->Model_ventasfecha->eliminar_venta($id_venta);
+		redirect(base_url() . 'index.php/ventas/Controller_reporteventas/ventaspendientes'); 
+	}
 	
 }
 ?>

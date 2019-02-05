@@ -86,17 +86,23 @@
 						</button>
 						<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
 							<!-- Boton que direcciona a la vista de la busqueda de productos -->
+							<form class="form-inline my-2 my-lg-0" action='http://localhost:8080/systelecoms/index.php/ventas/Controller_reporteventas/ventashoy' method='POST'>
+									<button class="dropdown-item" type="submit">Ventas del día</button>
+							</form>
 							<form class="form-inline my-2 my-lg-0" action='http://localhost:8080/systelecoms/index.php/ventas/Controller_reporteventas/ventasfecha' method='POST'>
 									<button class="dropdown-item" type="submit">Ventas por fecha</button>
 							</form>
 							<form class="form-inline my-2 my-lg-0" action='http://localhost:8080/systelecoms/index.php/ventas/Controller_reporteventas/ventasultimomes' method='POST'>
 									<button class="dropdown-item" type="submit" name>Ventas ultimo mes</button>
 							</form>
-							<form class="form-inline my-2 my-lg-0" action='http://localhost:8080/systelecoms/index.php/ventas/Controller_reporteventas/ventashoy' method='POST'>
-									<button class="dropdown-item" type="submit">Ventas de HOY</button>
+							<form class="form-inline my-2 my-lg-0" action='http://localhost:8080/systelecoms/index.php/ventas/Controller_reporteventas/ventasultimoano' method='POST'>
+									<button class="dropdown-item" type="submit" name>Ventas ultimo año</button>
 							</form>
-							<form class="form-inline my-2 my-lg-0" action='http://localhost:8080/systelecoms/index.php/header/Controller_inicio/tabla_proveedor' method='POST'>
-									<button class="dropdown-item" type="submit">Lista Proveedor</button>
+							<form class="form-inline my-2 my-lg-0" action='http://localhost:8080/systelecoms/index.php/ventas/Controller_reporteventas/ventasultimasemana' method='POST'>
+									<button class="dropdown-item" type="submit">Ventas de la semana</button>
+							</form>
+							<form class="form-inline my-2 my-lg-0" action='http://localhost:8080/systelecoms/index.php/ventas/Controller_reporteventas/ventaspendientes' method='POST'>
+									<button class="dropdown-item" type="submit">Ventas pendientes</button>
 							</form>
 						</div>
 					</div>

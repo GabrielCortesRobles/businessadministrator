@@ -1,5 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-class Reporte_PDF_ventaspendientes extends CI_Controller
+class Reporte_PDF_ventaultimasemana extends CI_Controller
 {
 	public function __construct()
 	{

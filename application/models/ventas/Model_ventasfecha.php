@@ -1,7 +1,7 @@
 <?php
 class Model_ventasfecha extends CI_Model
 {
-	public function buscarventas($fecha1,$fecha2)
+		public function buscarventas($fecha1,$fecha2)
 		{
 			//consulta para insertar venta
 			$sql="SELECT v.id_venta, CONCAT(c.nom_cliente,' ', c.ap_cliente,' ',c.am_cliente) AS cliente,
@@ -48,19 +48,59 @@ class Model_ventasfecha extends CI_Model
             INNER JOIN producto AS p ON p.id_producto=d.id_producto
             INNER JOIN ventas AS v ON v.id_venta=d.id_venta
             INNER JOIN cliente AS c ON c.id_cliente=v.id_cliente
-            INNER JOIN empleado AS e ON e.id_empleado=v.id_empleado WHERE MONTH(v.fecha) = MONTH(CURDATE()) AND v.estado ='Pagado';";
+            INNER JOIN empleado AS e ON e.id_empleado=v.id_empleado WHERE MONTH(fecha) = MONTH(DATE_ADD(CURDATE(),INTERVAL -1 MONTH)) AND v.estado ='Pagado' ORDER BY d.id_detalle ASC;";
             $res = $this->db->query($sql);
             return $res->result();
         }
 		
+				public function ultimoano()
+		{
+			//consulta para insertar venta
+			$sql="SELECT v.id_venta, CONCAT(c.nom_cliente,' ', c.ap_cliente,' ',c.am_cliente) AS cliente,
+            CONCAT( e.nom_empleado,' ',e.ap_empleado,' ',e.am_empleado) AS empleado,
+            p.nom_producto, d.cantidad, d.subtotal, v.estado, v.fecha, v.hora_venta 
+            FROM detalle_venta AS d
+            INNER JOIN producto AS p ON p.id_producto=d.id_producto
+            INNER JOIN ventas AS v ON v.id_venta=d.id_venta
+            INNER JOIN cliente AS c ON c.id_cliente=v.id_cliente
+            INNER JOIN empleado AS e ON e.id_empleado=v.id_empleado WHERE YEAR(fecha) = YEAR(DATE_ADD(CURDATE(),INTERVAL -1 YEAR)) AND v.estado ='Pagado' ORDER BY d.id_detalle ASC;";
+            $res = $this->db->query($sql);
+            return $res->result();
+        }
+			
+				public function ultimasemana()
+		{
+			//consulta para insertar venta
+			$sql="SELECT v.id_venta, CONCAT(c.nom_cliente,' ', c.ap_cliente,' ',c.am_cliente) AS cliente,
+            CONCAT( e.nom_empleado,' ',e.ap_empleado,' ',e.am_empleado) AS empleado,
+            p.nom_producto, d.cantidad, d.subtotal, v.estado, v.fecha, v.hora_venta 
+            FROM detalle_venta AS d
+            INNER JOIN producto AS p ON p.id_producto=d.id_producto
+            INNER JOIN ventas AS v ON v.id_venta=d.id_venta
+            INNER JOIN cliente AS c ON c.id_cliente=v.id_cliente
+            INNER JOIN empleado AS e ON e.id_empleado=v.id_empleado WHERE YEARWEEK(fecha)= YEARWEEK(DATE_SUB(CURRENT_DATE(), INTERVAL 1 WEEK)) AND v.estado ='Pagado' ORDER BY d.id_detalle ASC;";
+            $res = $this->db->query($sql);
+            return $res->result();
+        }
 		
-		
-		
-		
-		
-		
-		
-		
-		
+		public function ventaspendientes()
+		{
+			//consulta para insertar venta
+			$sql="SELECT v.id_venta, CONCAT(c.nom_cliente,' ', c.ap_cliente,' ',c.am_cliente) AS cliente,
+            CONCAT( e.nom_empleado,' ',e.ap_empleado,' ',e.am_empleado) AS empleado,
+            p.nom_producto, d.cantidad, d.subtotal, v.estado, v.fecha, v.hora_venta 
+            FROM detalle_venta AS d
+            INNER JOIN producto AS p ON p.id_producto=d.id_producto
+            INNER JOIN ventas AS v ON v.id_venta=d.id_venta
+            INNER JOIN cliente AS c ON c.id_cliente=v.id_cliente
+            INNER JOIN empleado AS e ON e.id_empleado=v.id_empleado WHERE  v.estado ='Pendiente' ORDER BY d.id_detalle ASC;";
+            $res = $this->db->query($sql);
+            return $res->result();
+        }
+		public function eliminar_venta($id_venta)
+		{
+			$sql = "DELETE FROM ventas WHERE id_venta='$id_venta';";
+			$this->db->query($sql);
+		}
 }
 ?>
