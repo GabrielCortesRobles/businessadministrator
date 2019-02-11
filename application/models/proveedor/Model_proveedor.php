@@ -6,8 +6,8 @@ class Model_proveedor extends CI_Model
 	$direccion,$correo,$telefono,$activo)
 		{
 			//consulta para insertar proveedor
-			$sql = "SELECT alta_proveedor('$rfc_proveedor','$nom_empresa','$direccion',
-			'$correo','$telefono','$activo')";
+			$sql = "INSERT INTO proveedor (rfc_proveedor, nom_empresa, direccion, correo, telefono, activo) 
+			VALUES ('$rfc_proveedor','$nom_empresa','$direccion','$correo','$telefono','$activo');";
 			$query = $this->db->query($sql);
 		}
 	//Buscar proveedor

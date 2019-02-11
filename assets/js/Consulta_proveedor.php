@@ -1,5 +1,5 @@
 <?php
-$mysqli = new mysqli('localhost', 'root', '', 'systelecoms');
+$mysqli = new mysqli('www.rodihsa.com', 'rodihsa_user', '$Y$T3L3C0M@', 'rodihsa_systelecom');
 
 $salida = "";
 $query = "SELECT * FROM proveedor ORDER BY nom_empresa ASC;";

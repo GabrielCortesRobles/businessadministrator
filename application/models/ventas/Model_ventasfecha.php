@@ -101,6 +101,20 @@ class Model_ventasfecha extends CI_Model
 		{
 			$sql = "DELETE FROM ventas WHERE id_venta='$id_venta';";
 			$this->db->query($sql);
-		}
+        }
+        
+        //Funcion para cancelar la venta y restaurar las existencias
+        public function cancelarventa($id_venta)
+        {
+            $res = $this->db->query("SELECT id_producto, cantidad FROM detalle_venta WHERE id_venta='57';");		
+				$row = $res->result();
+				//$cantidad = $row[0]->cantidad;
+
+				foreach($row as $filas)
+				{
+					$sql = "CALL cancelaventa('$filas->id_producto','$filas->cantidad');";
+					$this->db->query($sql);	
+				}
+        }
 }
 ?>

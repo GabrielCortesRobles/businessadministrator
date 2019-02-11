@@ -1,5 +1,5 @@
 <?php
-$mysqli = new mysqli('localhost', 'root', '', 'systelecoms');
+$mysqli = new mysqli('www.rodihsa.com', 'rodihsa_user', '$Y$T3L3C0M@', 'rodihsa_systelecom');
 
 $salida = "";
 $query = "SELECT p.nom_producto, p.marca, pro.nom_empresa, p.codigo_int, 

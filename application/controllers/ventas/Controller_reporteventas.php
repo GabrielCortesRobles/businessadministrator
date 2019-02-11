@@ -92,7 +92,8 @@ class Controller_reporteventas extends CI_controller
 	public function eliminar_venta($id_venta)
 	{
 		$this->load->model('ventas/Model_ventasfecha');
-		$this->Model_ventasfecha->eliminar_venta($id_venta);
+		$this->Model_ventasfecha->cancelarventa($id_venta);
+		//$this->Model_ventasfecha->eliminar_venta($id_venta);
 		redirect(base_url() . 'index.php/ventas/Controller_reporteventas/ventaspendientes'); 
 	}
 	

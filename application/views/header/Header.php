@@ -24,6 +24,8 @@
 		<script type = "text/javascript" src = "http://localhost:8080/systelecoms/assets/js/jquery-3.3.1.js"> </script> 
 		<title>BA | Administrador</title>
 		<link rel="shortcut icon" href="<?= base_url() ?>assets/Images/systelecom.ico">
+		<!-- Custom Fonts -->
+		<script type = "text/javascript" src = "<?= base_url() ?>assets/js/all.js"> </script> 
 	</head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light" style='background-color: #E67E22;'>
@@ -37,7 +39,7 @@
 				<li class="nav-item active">
 					<div class="dropdown">
 						<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>Nuevo
+							<i class="fas fa-plus-circle"></i>
 						</button>
 						<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
 							<button type="button" class="dropdown-item" data-toggle="modal" data-target="#alta_producto">
@@ -59,7 +61,7 @@
 				<li class="nav-item">
 					<div class="dropdown">
 						<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<span class="glyphicon glyphicon-align-left" aria-hidden="true">Busqueda</span>
+							<i class="fas fa-search"></i>
 						</button>
 						<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
 							<!-- Boton que direcciona a la vista de la busqueda de productos -->
@@ -82,7 +84,7 @@
 				<li class="nav-item">
 					<div class="dropdown">
 						<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<span class="glyphicon glyphicon-align-left" aria-hidden="true">Ventas</span>
+							<i class="fas fa-chart-bar"></i>
 						</button>
 						<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
 							<!-- Boton que direcciona a la vista de la busqueda de productos -->
@@ -111,21 +113,21 @@
 				<li class="nav-item">
 					<!-- Boton que direcciona al modulo de ventas -->
 					<form class="form-inline my-2 my-lg-0" action='http://localhost:8080/systelecoms/index.php/header/Controller_inicio/venta' method='POST'>
-							<button class="btn btn-secondary" type="submit">Módulo venta</button>
+							<button class="btn btn-secondary" type="submit"><i Class="fas fa-cart-plus"></i> Módulo venta</button>
 					</form>
 				</li>
 				
 				<li class="nav-item">
 					<!-- Boton que direcciona al modulo de caja -->
 					<form class="form-inline my-2 my-lg-0" action='http://localhost:8080/systelecoms/index.php/ventas/Controller_caja/caja' method='POST'>
-							<button class="btn btn-secondary" type="submit">Módulo caja</button>
+							<button class="btn btn-secondary" type="submit"><i class="fas fa-cash-register" ></i> Módulo caja</button>
 					</form>
 				</li>
 				
 				<li class="nav-item">
 					<!-- Boton que direcciona al modulo de ventas -->
 					<form class="form-inline my-2 my-lg-0" action='http://localhost:8080/systelecoms/index.php/factura/Controller_factura_sistema/factura' method='POST'>
-							<button class="btn btn-secondary" type="submit">Módulo Factura</button>
+							<button class="btn btn-secondary" type="submit"> <i class="fas fa-clipboard-list"></i> Módulo Factura</button>
 					</form>
 				</li>
 				
@@ -133,10 +135,10 @@
 		</div>
 		<!-- Boton desplegable de Busqueda -->
 		<div class="dropdown">
-			<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				<span class="glyphicon glyphicon-align-left" aria-hidden="true">Configuración</span>
+			<button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<span class="fas fa-cogs"></span> Configuración
 			</button>
-			<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+			<div class="dropdown-menu dropdown-menu-left">
 			
 				<div class="dropdown-divider"></div>
 				<h6 class="dropdown-header" align='center'>Reportes</h6>
