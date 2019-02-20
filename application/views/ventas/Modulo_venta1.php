@@ -1,6 +1,6 @@
 <?php
 	error_reporting(0);
-  $mysqli = new mysqli('localhost', 'root', '', 'systelecoms');
+  $mysqli = new mysqli('www.rodihsa.com', 'rodihsa_user', '$Y$T3L3C0M@', 'rodihsa_systelecom');
 
 	//condicion para recuperar la sesion
 	if ($_SESSION['id_usuario'] | $_SESSION['id_empleado'] == null)
@@ -19,22 +19,6 @@
 		$codigo_empleado = $_SESSION['codigo_empleado'];
 	}
 ?>
-<html>
-	<head>
-		<!-- Required meta tags -->
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	   <link rel="stylesheet" href="<?= base_url() ?>assets/css/bootstrap.min.css">
-	   <link rel="stylesheet" href="<?= base_url() ?>assets/css/ventas.css">
-	   <script type = "text/javascript" src = "http://localhost:8080/systelecoms/assets/js/jquery-3.2.1.js"> </script>
-	    <script type = "text/javascript" src = "http://localhost:8080/systelecoms/assets/js/Insertar_venta.js"></script>
-	    <script type = "text/javascript" src = "http://localhost:8080/systelecoms/assets/js/Agrega_producto.js"></script>
-	    <script type = "text/javascript" src = "http://localhost:8080/systelecoms/assets/js/Buscar_producto.js"></script>
-	    <script type = "text/javascript" src = "http://localhost:8080/systelecoms/assets/js/Buscar_precio.js"></script>
-	    <script type = "text/javascript" src = "http://localhost:8080/systelecoms/assets/js/Buscar_cliente.js"></script>
-	    <script type = "text/javascript" src = "http://localhost:8080/systelecoms/assets/js/Buscar_empleado.js"></script>
-	</head>
-	<body>
 		<div class='container-fluid'>
 			<form class="was-validated" method='POST'>
 				<fieldset class='form'>

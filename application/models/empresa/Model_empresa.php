@@ -16,7 +16,7 @@
 		{
 			$this->db->where(['id_empresa'=>$id_empresa]);
 			$this->db->update('empresas',$datos);
-		
+		}
 	
 	public function empresa()
 	{

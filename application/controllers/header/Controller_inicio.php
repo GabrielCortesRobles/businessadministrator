@@ -13,11 +13,11 @@ class Controller_inicio extends CI_controller
 			else
 			{
 				$this->load->view("header/Header");
-				$this->load->view("header/Inicio");
 				$this->load->view("producto/Modal_alta_producto");
 				$this->load->view("empleado/Modal_alta_empleado");
 				$this->load->view("proveedor/Modal_alta_proveedores");
 				$this->load->view("cliente/Modal_alta_cliente");
+				$this->load->view("header/Inicio");
 			}
 		}
 	//vista para la tabla dinamica de productos del sitema

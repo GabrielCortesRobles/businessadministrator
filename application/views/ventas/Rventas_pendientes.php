@@ -1,16 +1,3 @@
-
-<html lang="es">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="<?= base_url() ?>assets/css/bootstrap.min.css">
-        <script type = "text/javascript" src = "http://localhost:8080/systelecoms/assets/js/jquery-3.3.1.js"> </script>
-    <title></title>
-  </head>
-  <body>
   <!-----Tabla de busqueda cliente------->
 	<fieldset class='form'>
 		<br>
@@ -19,60 +6,60 @@
 	</div>
 	<hr>
 	<div class='container-fluid'>
-	<div class='row'>
-	<div class="col-md-8">
-	<div class="table-responsive">
+	<div class="row">
+	<div class="col-sm-7 col-md-7 col-lg-7">
 	<table class="table table-sm table-bordered">
 	<thead>
     <tr class="bg-primary">
-     <th scope="col">N. venta</th>
+      <th scope="col">ID</th>
       <th scope="col">NOMBRE DEL CLIENTE</th>
       <th scope="col">NOMBRE DEL EMPLEADO</th>
-	  <th scope="col">PRODUCTO</th>
-	  <th scope="col">CANTIDAD</th>
-	  <th scope="col">SUBTOTAL</th>
-      <th scope="col">ESTADO</th>
       <th scope="col">FECHA</th>
-      <th scope="col">HORA</th>
+      <th scope="col" hidden>HORA</th>
+      <th scope="col">TOTAL</th>
       <th scope="col">OPCION</th>
    </tr>
   </thead>
-  <?php
-	foreach ($res as $obj){
-		$id_venta=$obj->id_venta;
-		$cliente=$obj->cliente;
-		$empleado=$obj->empleado;
-		$nom_producto=$obj->nom_producto;
-		$cantidad=$obj->cantidad;
-		$subtotal=$obj->subtotal;
-		$estado=$obj->estado;
-		$fecha=$obj->fecha;
-		$hora_venta=$obj->hora_venta;
+	<?php
+	foreach ($res as $object){
+		$id_venta=$object->id_venta;
+		$nom_cliente=$object->nom_cliente;
+		$ap_cliente=$object->ap_cliente;
+		$am_cliente=$object->am_cliente;
+		$nom_empleado=$object->nom_empleado;
+		$ap_empleado=$object->ap_empleado;
+		$am_empleado=$object->am_empleado;
+		$fecha=$object->fecha;
+		$hora_venta=$object->hora_venta;
+		$total=$object->total;
 		
 		echo "<tbody>";
 		echo "<tr>";
 			echo "<td>".$id_venta."</td>";
-			echo "<td>".$cliente."</td>";
-			echo "<td>".$empleado."</td>";
-			echo "<td>".$nom_producto."</td>";
-			echo "<td>".$cantidad."</td>";
-			echo "<td>".$subtotal."</td>";
-			echo "<td>".$estado."</td>";
+			echo "<td>".$nom_cliente." ".$ap_cliente." ".$am_cliente."</td>";
+			echo "<td>".$nom_empleado." ".$ap_empleado." ".$am_empleado."</td>";
 			echo "<td>".$fecha."</td>";
-			echo "<td>".$hora_venta."</td>";
-			echo "<td><form action = 'http://localhost:8080/systelecoms/index.php/ventas/Controller_reporteventas/eliminar_venta/$id_venta' method='POST'>
-					<button type='submit' class='btn btn-danger' >X</button>
+			echo "<td hidden>".$hora_venta."</td>";
+			echo "<td>$ ".$total."</td>";
+			echo "<td><div class='row justify-content-center'><form action ='".base_url()."index.php/ventas/Controller_reporteventas/ventaspendientes/$id_venta' method='POST'>
+					<button type='submit' class='btn btn-primary' ><i class='fas fa-eye'></i></button>
+					</form>
+					<form action = '".base_url()."index.php/ventas/Controller_reporteventas/eliminar_venta/$id_venta' method='POST'>
+					<button type='submit' class='btn btn-danger'><i class='fas fa-times-circle'></i> </button>
 					</form></div></td>";
-			echo "</tr>";
+		echo "</tr>";
 	echo "</tbody>";
 	}
 	?>
-
 </table>
 </div>
+<div class="col-sm-5 col-md-5 col-lg-5">
+<?php
+	include('Detalle_vpendientes.php');
+?>
 </div>
 </div>
 </div>
-	</fieldset>
-  </body>
+</fieldset>
+</body>
 </html>

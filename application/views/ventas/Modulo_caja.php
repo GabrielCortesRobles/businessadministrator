@@ -1,20 +1,6 @@
 <?php 
 	error_reporting(0);
 ?>
-<html lang="es">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="<?= base_url() ?>assets/css/bootstrap.min.css">
-        <script type = "text/javascript" src = "http://localhost:8080/systelecoms/assets/js/jquery-3.3.1.js"> </script> 
-        <script type = "text/javascript" src = "http://localhost:8080/systelecoms/assets/js/Agrega_producto.js"> </script> 
-        <script type = "text/javascript" src = "http://localhost:8080/systelecoms/assets/js/modulo_caja.js"> </script> 
-    <title></title>
-  </head>
-  <body>
   <!-----Tabla de busqueda cliente------->
 	<fieldset class='form'>
 		<br>
@@ -59,10 +45,10 @@
 			echo "<td>".$fecha."</td>";
 			echo "<td hidden>".$hora_venta."</td>";
 			echo "<td>$ ".$total."</td>";
-			echo "<td><div class='row justify-content-center'><form action = 'http://localhost:8080/systelecoms/index.php/ventas/Controller_caja/caja/$id_venta' method='POST'>
+			echo "<td><div class='row justify-content-center'><form action = '<?= base_url() ?>index.php/ventas/Controller_caja/caja/$id_venta' method='POST'>
 					<button type='submit' class='btn btn-primary' >Ver</button>
 					</form>
-					<form action = 'http://localhost:8080/systelecoms/index.php/ventas/Controller_caja/eliminar_venta/$id_venta' method='POST'>
+					<form action = '<?= base_url() ?>index.php/ventas/Controller_caja/eliminar_venta/$id_venta' method='POST'>
 					<button type='submit' class='btn btn-danger' >X</button>
 					</form></div></td>";
 		echo "</tr>";

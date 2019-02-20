@@ -1,4 +1,4 @@
-	<div class="col-sm-12 col-md-12 col-lg-12">
+<div class="col-sm-12 col-md-12 col-lg-12">
 	<table class="table table-sm table-bordered">
 	<thead>
     <tr class="bg-primary">
@@ -26,7 +26,7 @@
 			echo "<td>".$cantidad."</td>";
 			echo "<td>$ ".$subtotal."</td>";
 			echo "<td><center><div class='row justify-content-center'>
-					<form action = 'http://localhost:8080/systelecoms/index.php/ventas/Controller_caja/eliminar_detalleventa/$id_detalle/$id_venta' method='POST'>
+					<form action = '".base_url()."index.php/ventas/Controller_reporteventas/eliminardetalle_venta/$id_detalle/$id_venta' method='POST'>
 					<button type='submit' class='btn btn-danger' ><i class='fas fa-times-circle'></i></button>
 					</form></div></center></td>";
 		echo "</tr>";

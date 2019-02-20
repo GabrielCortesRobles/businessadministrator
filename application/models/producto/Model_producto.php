@@ -6,8 +6,8 @@ class Model_producto extends CI_Model
 	$precio_mayoreo, $piezas_mediomayoreo, $piezas_mayoreo,$activo)
 		{
 			//consulta para insertar producto en la base de datos
-			$sql = "insert into producto (nom_producto,marca,id_proveedor,codigo_int,codigo_sat,cantidad_prod,descripcion,precio_adquisicion,precio_cu,precio_menudeo,precio_mayoreo ,piezas_mediomayoreo, piezas_mayoreo,fecha,hora,activo)
-			values ('$nom_producto','$marca','$id_proveedor','$codigo_int','$codigo_sat','$cantidad_prod','$descripcion','$precio_adquisicion','$precio_cu','$precio_menudeo','$precio_mayoreo', '$piezas_mediomayoreo', '$piezas_mayoreo',CURDATE(),CURTIME(),'$activo')";
+			$sql = "insert into producto (nom_producto,marca,id_proveedor,codigo_int,codigo_sat,cantidad_prod,descripcion,precio_adquisicion,precio_cu,precio_menudeo,precio_mayoreo ,piezas_mediomayoreo, piezas_mayoreo,fecha_creacion,ultima_modificacion,activo)
+			values ('$nom_producto','$marca','$id_proveedor','$codigo_int','$codigo_sat','$cantidad_prod','$descripcion','$precio_adquisicion','$precio_cu','$precio_menudeo','$precio_mayoreo', '$piezas_mediomayoreo', '$piezas_mayoreo',CURDATE(),CURDATE(),'$activo')";
 			$this->db->query($sql) OR DIE ("eRROR DE CONSULTA");
 		}
 	//Buscar producto

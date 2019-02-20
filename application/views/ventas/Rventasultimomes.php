@@ -5,17 +5,14 @@
 	<h2>VENTAS DEL ULTIMO MES</h2>
 	</div>
 	<hr>
-		
-	<br><br>
-	<div class="col-md-12">
+	<div class="container-fluid">
 	
-	<div align='left'>
+	<div class='col-md-2'>
 	<form action = "http://localhost:8080/systelecoms/index.php/ventas/Reporte_PDF_ventaultimomes/ExportarPDF/<?php echo $id?>">
 				<button type="submit" class="btn btn-danger"  >Reporte en pdf</button>
 	</form>
-	</div>
-	<br>	
-	
+	</div>	
+	<div class="col-sm-12 col-md-12 col-lg-12">
 	<table class="table table-sm table-bordered">
 	<thead>
     <tr class="bg-primary">
@@ -56,4 +53,6 @@
 	?>
 </table>
 </div>
+</div>
+</fieldset>
 

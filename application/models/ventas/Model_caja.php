@@ -59,17 +59,5 @@ class Model_caja extends CI_Model
 		$sql = "UPDATE ventas SET cant_recibida='$recibido_venta', cambio='$cambio_venta', estado='Pagado' WHERE id_venta='$id_venta';";
 		$this->db->query($sql);
 	}
-
-	public function eliminar_venta($id_venta)
-	{
-		$sql = "DELETE FROM ventas WHERE id_venta='$id_venta';";
-		$this->db->query($sql);
-	}
-
-	public function eliminar_detalleventa($id_detalle, $id_venta)
-	{
-		$sql = "CALL baja_detalle ('$id_venta','$id_detalle');";
-		$this->db->query($sql);
-	}
 }
 ?>

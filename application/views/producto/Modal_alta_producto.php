@@ -1,23 +1,9 @@
 <?php
  
-  $mysqli = new mysqli('localhost', 'root', '', 'systelecoms');
+  $mysqli = new mysqli('www.rodihsa.com','rodihsa_user','$Y$T3L3C0M@','rodihsa_systelecom');
 
 ?>
-<!doctype html>
-<html lang="es">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="<?= base_url() ?>assets/css/bootstrap.min.css">
-    <script type = "text/javascript" src = "http://localhost:8080/systelecoms/assets/js/jquery-3.3.1.js"> </script> 
-	<script type = "text/javascript" src = "http://localhost:8080/systelecoms/assets/js/Alta_producto.js"> </script> 
-   <title>Alta Producto</title>
-  </head>
-  <body>
-	<fieldset class='form'>
+<fieldset class='form'>
 
 <!-- Modal -->
 <div class="modal fade" id="alta_producto" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -148,5 +134,3 @@
   </div>
 </div>
 	</fieldset>
-</body>
-</html>
