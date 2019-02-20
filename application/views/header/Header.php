@@ -9,7 +9,10 @@
 		// transaformacion de la sesión en variables para facilitar su llamado
 		$id_empleado = $_SESSION['id_empleado'];
 		$nom_empleado = $_SESSION['nom_empleado'];
-		$correo = $_SESSION['correo'];
+		$administrador = $_SESSION['administrador'];
+		$caja = $_SESSION['caja'];
+		$almacen = $_SESSION['almacen'];
+		$venta = $_SESSION['venta'];
 	}
 ?>
 <html lang="es">
@@ -17,7 +20,11 @@
 		<!-- Required meta tags -->
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<title>BA | Administrador</title>
+		<title>BA <?php if( $administrador == 1 ) { echo "| Administrador"; }?>
+		<?php if( $caja == 1 ) { echo "| Caja"; }?>
+		<?php if( $almacen == 1 ) { echo "| Almacen"; }?>
+		<?php if( $venta == 1 ) { echo "| Ventas"; }?>
+		</title>
 		<link rel="shortcut icon" href="<?= base_url() ?>assets/Images/systelecom.ico">
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="<?= base_url() ?>assets/css/bootstrap.min.css">
@@ -49,6 +56,8 @@
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
+
+			<?php if( ($almacen || $administrador ) == 1 ) { ?>
 				<li class="nav-item active">
 					<div class="dropdown">
 						<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -70,6 +79,7 @@
 						</div>
 					</div>
 				</li>
+			<?php } ?>
 	  
 				<li class="nav-item">
 					<div class="dropdown">
@@ -129,7 +139,8 @@
 							<button class="btn btn-secondary" type="submit"><i Class="fas fa-cart-plus"></i> Módulo venta</button>
 					</form>
 				</li>
-				
+
+				<?php if( ($caja || $administrador ) == 1 ) { ?>
 				<li class="nav-item">
 					<!-- Boton que direcciona al modulo de caja -->
 					<form class="form-inline my-2 my-lg-0" action='<?= base_url() ?>index.php/ventas/Controller_caja/caja' method='POST'>
@@ -143,6 +154,7 @@
 							<button class="btn btn-secondary" type="submit"> <i class="fas fa-clipboard-list"></i> Módulo Factura</button>
 					</form>
 				</li>
+				<?php } ?>
 				
 			</ul>
 		</div>
@@ -194,6 +206,7 @@
 						<button class="btn btn-outline-success my-2 my-sm-0" type="submit" hidden>Buscar</button>
 					</form>
 				</div>
+				<?php if( $administrador == 1 ) { ?>
 				<div class="dropdown-divider"></div>
 			
 					<div>
@@ -215,6 +228,7 @@
 						<button class="dropdown-item" type="submit"><i class="fas fa-database"></i> Backup</button>
 					</form>
 				</div>
+				<?php } ?>
 				<div class="dropdown-divider"></div>
 				<div>
 				<!-- Cerrar session -->
