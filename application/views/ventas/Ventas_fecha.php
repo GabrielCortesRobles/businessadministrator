@@ -26,9 +26,12 @@
             </form>
         </div>
         <br>
+        <div class="col-auto my-1">
+            <input type="button" value="Reporte en PDF" class="btn btn-danger" name='venta' id="venta" hidden>
+        </div>
         <div class='row'>
             <div class='col-md-12' id='contenido'>
-
+            
             </div>
         </div>
     </div>

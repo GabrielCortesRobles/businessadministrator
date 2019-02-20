@@ -1,13 +1,24 @@
+<script>
+
+$(document).ready(function()
+{      
+	$("#ultimoano").click(function() { 	
+        var id=$("#id").val();
+		window.open("http://localhost:8080/systelecoms/index.php/ventas/Reporte_PDF_ventaultimoano/ExportarPDF/","ultimoaño", "width=380, height=500, top=85, left=50", true);		
+		
+	});
+		
+});
+</script>
 <fieldset class='form'>
 		<br>
 	<div align='center'>
 	<h2>VENTAS DEL ULTIMO AÑO</h2>
 	</div>
 	<hr>
-		<div align='left'>
-	<form action = "http://localhost:8080/systelecoms/index.php/ventas/Reporte_PDF_ventaultimoano/ExportarPDF/<?php echo $id?>">
-				<button type="submit" class="btn btn-danger"  >Reporte en pdf</button>
-	</form>
+	<div class="col-auto my-1">
+            <input type="button" value="Reporte en PDF" class="btn btn-danger" name='ultimoano' id="ultimoano">
+    </div>
 	</div>
 	<br>
 	<div class="col-md-12">
