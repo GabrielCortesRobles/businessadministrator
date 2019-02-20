@@ -77,12 +77,11 @@ class Controller_reporteventas extends CI_controller
 		}
 		
 			
-	public function ventaspendientes()
+	public function ventaspendientes($id_venta)
 	{
-		$id = $this->input->post('id');
-		$this->load->model('ventas/Model_ventasfecha');
-		$data['res']=$this->Model_ventasfecha->ventaspendientes();
-		$data['id'] = $id;
+		$this->load->model('ventas/Model_caja');
+		$data['res']=$this->Model_caja->caja();
+		$data['res1']=$this->Model_caja->caja_detalle($id_venta);
 		$this->load->view("header/Header");
 		$this->load->view("proveedor/Modal_alta_proveedores");
 		$this->load->view("cliente/Modal_alta_cliente");
@@ -93,7 +92,14 @@ class Controller_reporteventas extends CI_controller
 	{
 		$this->load->model('ventas/Model_ventasfecha');
 		$this->Model_ventasfecha->cancelarventa($id_venta);
-		//$this->Model_ventasfecha->eliminar_venta($id_venta);
+		$this->Model_ventasfecha->eliminar_venta($id_venta);
+		redirect(base_url() . 'index.php/ventas/Controller_reporteventas/ventaspendientes');
+	}
+
+	public function eliminardetalle_venta($id_detalle,$id_venta)
+	{
+		$this->load->model('ventas/Model_ventasfecha');
+		$this->Model_ventasfecha->eliminar_detalleventa($id_detalle, $id_venta);
 		redirect(base_url() . 'index.php/ventas/Controller_reporteventas/ventaspendientes'); 
 	}
 	

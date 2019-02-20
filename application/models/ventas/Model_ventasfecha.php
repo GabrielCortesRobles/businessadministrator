@@ -99,22 +99,40 @@ class Model_ventasfecha extends CI_Model
         }
 		public function eliminar_venta($id_venta)
 		{
-			$sql = "DELETE FROM ventas WHERE id_venta='$id_venta';";
-			$this->db->query($sql);
+			$sql = "DELETE FROM detalle_venta WHERE id_venta='$id_venta';";
+            $this->db->query($sql);
+            $sql2 = "DELETE FROM ventas WHERE id_venta='$id_venta';";
+		    $this->db->query($sql2);
         }
         
         //Funcion para cancelar la venta y restaurar las existencias
         public function cancelarventa($id_venta)
         {
-            $res = $this->db->query("SELECT id_producto, cantidad FROM detalle_venta WHERE id_venta='57';");		
+            $res = $this->db->query("SELECT id_producto, cantidad FROM detalle_venta WHERE id_venta='$id_venta';");		
 				$row = $res->result();
-				//$cantidad = $row[0]->cantidad;
-
+				$id_producto = $row[0]->id_producto;
+            if($id_producto != "")
+            {
 				foreach($row as $filas)
 				{
 					$sql = "CALL cancelaventa('$filas->id_producto','$filas->cantidad');";
-					$this->db->query($sql);	
-				}
+                    $this->db->query($sql);
+                }
+            }
         }
+
+	public function eliminar_detalleventa($id_detalle, $id_venta)
+	{
+        $res = $this->db->query("SELECT id_producto, cantidad FROM detalle_venta WHERE id_detalle='$id_detalle';");		
+        $row = $res->result();
+        foreach($row as $filas)
+				{
+					$sql = "CALL cancelaventa('$filas->id_producto','$filas->cantidad');";
+					$this->db->query($sql);	
+                }
+                
+		$sql2 = "CALL baja_detalle ('$id_venta','$id_detalle');";
+		$this->db->query($sql2);
+	}
 }
 ?>

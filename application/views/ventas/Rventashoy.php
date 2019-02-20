@@ -15,7 +15,6 @@ $(document).ready(function()
 	<div align='center'>
 	<h2>VENTAS DEL DÍA DE HOY</h2>
 	</div>
-	
 	<div class="col-auto my-1">
             <input type="button" value="Reporte en PDF" class="btn btn-danger" name='venta' id="venta">
     </div>
@@ -24,11 +23,11 @@ $(document).ready(function()
 	<div class="col-md-12">
 	
 	<table class="table table-sm table-bordered">
-	<thead>
-    <tr class="bg-primary">
-      <th scope="col">N. VENTA</th>
-      <th scope="col">NOMBRE DEL CLIENTE</th>
-      <th scope="col">NOMBRE DEL EMPLEADO</th>
+	 <thead>
+		<tr class="bg-primary">
+		<th scope="col">N. VENTA</th>
+		<th scope="col">NOMBRE DEL CLIENTE</th>
+		<th scope="col">NOMBRE DEL EMPLEADO</th>
 	  <th scope="col">PRODUCTO</th>
 	  <th scope="col">CANTIDAD</th>
 	  <th scope="col">SUBTOTAL</th>
@@ -36,6 +35,8 @@ $(document).ready(function()
       <th scope="col">FECHA</th>
       <th scope="col">HORA</th>
    </tr>
+  </thead>
+
   </thead>
 	<?php
 	foreach ($res as $object){
@@ -66,4 +67,4 @@ $(document).ready(function()
 	?>
 </table>
 </div>
-</form>
+</fieldset>
