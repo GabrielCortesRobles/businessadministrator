@@ -1,29 +1,11 @@
-<?php 
-	error_reporting(0);
-?>
-<html lang="es">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="<?= base_url() ?>assets/css/bootstrap.min.css">
-        <script type = "text/javascript" src = "http://localhost:8080/systelecoms/assets/js/jquery-3.3.1.js"> </script> 
-    <title></title>
-  </head>
-  <body>
-  <!-----Tabla de busqueda cliente------->
 	<fieldset class='form'>
 		<br>
 	<div align='center'>
 	<h2>Ventas pendientes</h2>
 	</div>
 	<hr>
-	<div class='container-fluid'>
-	<div class='row'>
-	<div class="col-md-8">
-	<div class="table-responsive">
+	<div class="col-md-12">
 	<table class="table table-sm table-bordered">
 	<thead>
     <tr class="bg-primary">
@@ -69,14 +51,4 @@
 	?>
 </table>
 </div>
-</div>
-<div class="col-md-4">
-	<?php
-	include('Caja_detalle.php');
-	?>
-</div>
-</div>
-</div>
-	</fieldset>
-  </body>
-</html>
+</fieldset>

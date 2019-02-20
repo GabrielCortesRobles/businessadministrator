@@ -1,22 +1,31 @@
+<script>
+
+$(document).ready(function()
+{      
+	$("#ultimoano").click(function() { 	
+        var id=$("#id").val();
+		window.open("http://localhost:8080/systelecoms/index.php/ventas/Reporte_PDF_ventaultimoano/ExportarPDF/","ultimoaño", "width=380, height=500, top=85, left=50", true);		
+		
+	});
+		
+});
+</script>
 <fieldset class='form'>
 		<br>
 	<div align='center'>
 	<h2>VENTAS DEL ULTIMO AÑO</h2>
 	</div>
 	<hr>
-	<div class="container-fluid">
-	<div class="col-md-2">
-	<form action = "http://localhost:8080/systelecoms/index.php/ventas/Reporte_PDF_ventaultimoano/ExportarPDF/<?php echo $id?>">
-				<button type="submit" class="btn btn-danger"  >Reporte en pdf</button>
-	</form>
-	</div>
-	<div class="col-sm-12 col-md-12 col-lg-12">
-	<table class="table table-sm table-bordered">
-	<thead>
-    <tr class="bg-primary">
-      <th scope="col">N. venta</th>
-      <th scope="col">NOMBRE DEL CLIENTE</th>
-      <th scope="col">NOMBRE DEL EMPLEADO</th>
+		<div>
+            <input type="button" value="Reporte en PDF" class="btn btn-danger" name='ultimoano' id="ultimoano">
+    </div>
+		<br>
+		<table class="table table-sm table-bordered">
+		<thead>
+		<tr class="bg-primary">
+		<th scope="col">N. VENTA</th>
+		<th scope="col">NOMBRE DEL CLIENTE</th>
+		<th scope="col">NOMBRE DEL EMPLEADO</th>
 	  <th scope="col">PRODUCTO</th>
 	  <th scope="col">CANTIDAD</th>
 	  <th scope="col">SUBTOTAL</th>

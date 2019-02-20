@@ -1,9 +1,5 @@
-	<div align='left'>
-	<form action = "http://localhost:8080/systelecoms/index.php/ventas/Reporte_PDF_ventafecha/ExportarPDF/<?php echo $fecha1?>/<?php echo $fecha2?>">
-				<button type="submit" class="btn btn-danger"  >Reporte en pdf</button>
-	</form>
-	</div>	
-	
+
+	<br><br>
 	<table class="table table-sm table-bordered">
 	<thead>
     <tr class="bg-primary">
