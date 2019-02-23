@@ -1,3 +1,16 @@
+<script>
+
+$(document).ready(function()
+{      
+	$("#semana").click(function() { 	
+        
+		window.open("http://localhost:8080/systelecoms/index.php/ventas/Reporte_PDF_ventaultimasemana/ExportarPDF/", "width=380, height=500, top=85, left=50", true);		
+		
+	});
+	
+});
+</script>
+
 <fieldset class='form'>
 		<br>
 	<div align='center'>
@@ -5,11 +18,11 @@
 	</div>
 	<hr>
 	<div class="container-fluid">
-	<div class='col-md-2'>
-	<form action = "http://localhost:8080/systelecoms/index.php/ventas/Reporte_PDF_ventaultimasemana/ExportarPDF/<?php echo $id?>">
-				<button type="submit" class="btn btn-danger"  >Reporte en pdf</button>
-	</form>
-	</div>
+	<div class="col-auto my-1">
+            <input type="button" value="Reporte en PDF" class="btn btn-danger" name='semana' id="semana">
+    </div>
+		<br>
+		
 	<div class="col-sm-12 col-md-12 col-lg-12">
 	<table class="table table-sm table-bordered">
 	<thead>

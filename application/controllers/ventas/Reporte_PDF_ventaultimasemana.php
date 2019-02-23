@@ -56,11 +56,11 @@ class Reporte_PDF_ventaultimasemana extends CI_Controller
 		
 		$pdf->SetFont('times', 'B', 9, 'L', true);   
 	
-		$pdf->cell(25,5,'No. Venta',1,0);
+		$pdf->cell(25,5,'NO. VENTA',1,0);
 		$pdf->cell(50,5,'NOMBRE DEL CLIENTE',1,0);
 		$pdf->cell(50,5,'NOMBRE DEL EMPLEADO',1,0);
 		$pdf->cell(50,5,'PRODUCTO',1,0);
-		$pdf->cell(20,5,'CANTIDAD.',1,0);
+		$pdf->cell(20,5,'CANTIDAD',1,0);
 		$pdf->cell(20,5,'SUBTOTAL',1,0);
 		$pdf->cell(20,5,'FECHA',1,0);
 		$pdf->cell(15,5,'HORA',1,1);

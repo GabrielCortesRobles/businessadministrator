@@ -22,7 +22,9 @@ class Model_empleado extends CI_Model
 	/*----------------------------------------------------Busqueda empleado---------------------------------------------------------------*/
 	public function buscar_empleado($id)
 		{
-			$sql ="SELECT * FROM empleado AS emp LEFT JOIN tipo_empleado AS tip ON emp.id_tipoempleado=tip.id_tipoempleado
+			$sql ="SELECT * FROM empleado AS emp
+			LEFT JOIN tipo_empleado AS tip ON
+			 emp.id_tipoempleado=tip.id_tipoempleado
 			WHERE emp.id_empleado LIKE '%$id%'OR
 			emp.rfc_empleado LIKE '%$id%' OR 
 			emp.nom_empleado LIKE '%$id%' OR 

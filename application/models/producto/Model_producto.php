@@ -14,20 +14,22 @@ class Model_producto extends CI_Model
 	public function buscar_producto($id)
 	{
 		//Consulta de busqueda del producto en la base de datos
-		$sql ="SELECT * FROM producto
-		WHERE id_producto like '%$id%'or
-		nom_producto like '%$id%' or 
-		id_proveedor like '%$id%' or 
-		marca like '%$id%' or 
-		codigo_int like '%$id%' or 
-		codigo_sat like '%$id%' or 
-		cantidad_prod like '%$id%' or 
-		descripcion like '%$id%' or 
-		precio_cu like '%$id%' or
-		precio_menudeo like '%$id%' or 
-		precio_mayoreo like '%$id%' or
-		piezas_mediomayoreo like '%$id%' or 
-		piezas_mayoreo like '%$id%'";	
+		$sql ="SELECT * FROM producto as p
+		LEFT JOIN proveedor AS pro ON 
+			p.id_proveedor=pro.id_proveedor
+		WHERE id_producto like '%$id%' OR
+		p.nom_producto like '%$id%' OR 
+		p.id_proveedor like '%$id%' OR 
+		p.marca like '%$id%' OR
+		p.codigo_int like '%$id%' OR 
+		p.codigo_sat like '%$id%' OR 
+		p.cantidad_prod like '%$id%' OR 
+		p.descripcion like '%$id%' OR
+		p.precio_cu like '%$id%' OR
+		p.precio_menudeo like '%$id%' OR
+		p.precio_mayoreo like '%$id%' OR
+		p.piezas_mediomayoreo like '%$id%' OR 
+		p.piezas_mayoreo like '%$id%';";	
 		$query = $this->db->query($sql);
 		return $query->result();
 	}
