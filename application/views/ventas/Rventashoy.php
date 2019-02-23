@@ -15,12 +15,15 @@ $(document).ready(function()
 	<div align='center'>
 	<h2>VENTAS DEL DÍA DE HOY</h2>
 	</div>
+	<hr>
+	<div class="container-fluid">
 	<div class="col-auto my-1">
             <input type="button" value="Reporte en PDF" class="btn btn-danger" name='venta' id="venta">
     </div>
 		
 	<br>
-	<div class="col-md-12">
+	<div class="col-sm-12 col-md-12 col-lg-12">
+
 	
 	<table class="table table-sm table-bordered">
 	 <thead>
@@ -66,5 +69,6 @@ $(document).ready(function()
 	}
 	?>
 </table>
+</div>
 </div>
 </fieldset>

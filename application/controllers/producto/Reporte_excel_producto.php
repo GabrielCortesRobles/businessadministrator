@@ -13,18 +13,27 @@ class Reporte_excel_producto extends CI_Controller
 		//Cargamos la librería de excel.
         $this->load->library('excel'); $this->excel->setActiveSheetIndex(0);
         $this->excel->getActiveSheet()->setTitle('Datos');
+        $this->excel->getActiveSheet()->setCellValue('A1', 'Un poco de texto');
+        $this->excel->getActiveSheet()->getStyle('A1')->getFont()->setSize(20);
+    
+        $this->excel->getActiveSheet()->mergeCells('A1:D1');
+
         //Le aplicamos ancho las columnas.
-        $this->excel->getActiveSheet()->getColumnDimension('A')->setWidth(20);
-        $this->excel->getActiveSheet()->getColumnDimension('B')->setWidth(20);
-        $this->excel->getActiveSheet()->getColumnDimension('C')->setWidth(20);
-		$this->excel->getActiveSheet()->getColumnDimension('D')->setWidth(20);
-        $this->excel->getActiveSheet()->getColumnDimension('E')->setWidth(20);
-        $this->excel->getActiveSheet()->getColumnDimension('F')->setWidth(20);
-        $this->excel->getActiveSheet()->getColumnDimension('G')->setWidth(20);
+        $this->excel->getActiveSheet()->getColumnDimension('A')->setWidth(5);
+        $this->excel->getActiveSheet()->getColumnDimension('B')->setWidth(30);
+        $this->excel->getActiveSheet()->getColumnDimension('C')->setWidth(10);
+		$this->excel->getActiveSheet()->getColumnDimension('D')->setWidth(10);
+        $this->excel->getActiveSheet()->getColumnDimension('E')->setWidth(10);
+        $this->excel->getActiveSheet()->getColumnDimension('F')->setWidth(10);
+        $this->excel->getActiveSheet()->getColumnDimension('G')->setWidth(65);
+        $this->excel->getActiveSheet()->getColumnDimension('H')->setWidth(20);
+        $this->excel->getActiveSheet()->getColumnDimension('I')->setWidth(25);
+        $this->excel->getActiveSheet()->getColumnDimension('J')->setWidth(25);
+        
         //$this->excel->getActiveSheet()->getColumnDimension('P')->setWidth(20);
         
         
-		//Le aplicamos negrita a los títulos de la cabecera.
+        //Le aplicamos negrita a los títulos de la cabecera.
         $this->excel->getActiveSheet()->getStyle("A1")->getFont()->setBold(true);
         $this->excel->getActiveSheet()->getStyle("B1")->getFont()->setBold(true);
         $this->excel->getActiveSheet()->getStyle("C1")->getFont()->setBold(true);
@@ -34,17 +43,19 @@ class Reporte_excel_producto extends CI_Controller
         $this->excel->getActiveSheet()->getStyle("G1")->getFont()->setBold(true);
         $this->excel->getActiveSheet()->getStyle("H1")->getFont()->setBold(true);
         $this->excel->getActiveSheet()->getStyle("I1")->getFont()->setBold(true);
+        $this->excel->getActiveSheet()->getStyle("J1")->getFont()->setBold(true);
         
 		//Definimos los títulos de la cabecera.
-        $this->excel->getActiveSheet()->setCellValue("A1", 'NOMBRE DEL PRODUCTO');
-        $this->excel->getActiveSheet()->setCellValue("B1", 'MARCA');
-        $this->excel->getActiveSheet()->setCellValue("C1", 'SERIE');
-        $this->excel->getActiveSheet()->setCellValue("D1", 'CODIGO');
-        $this->excel->getActiveSheet()->setCellValue("E1", 'CANTIDAD');
-		$this->excel->getActiveSheet()->setCellValue("F1", 'DESCRIPCION');
-		$this->excel->getActiveSheet()->setCellValue("G1", 'PRECIO POR PIEZA');
-        $this->excel->getActiveSheet()->setCellValue("H1", 'PRECIO POR MENUDEO');
-        $this->excel->getActiveSheet()->setCellValue("I1", 'PRECIO POR MAYOREO');
+        $this->excel->getActiveSheet()->setCellValue("A3", 'ID');
+        $this->excel->getActiveSheet()->setCellValue("B3", 'NOMBRE DEL PRODUCTO');
+        $this->excel->getActiveSheet()->setCellValue("C3", 'MARCA');
+        $this->excel->getActiveSheet()->setCellValue("D3", 'CÓD. INT.');
+        $this->excel->getActiveSheet()->setCellValue("E3", 'CÓD. SAT');
+        $this->excel->getActiveSheet()->setCellValue("F3", 'CANTIDAD');
+		$this->excel->getActiveSheet()->setCellValue("G3", 'DESCRIPCION');
+		$this->excel->getActiveSheet()->setCellValue("H3", 'PRECIO POR PIEZA');
+        $this->excel->getActiveSheet()->setCellValue("I3", 'PRECIO POR MENUDEO');
+        $this->excel->getActiveSheet()->setCellValue("J3", 'PRECIO POR MAYOREO');
 		
 		//modelo reportes
 		$this->load->model('producto/Model_producto');
@@ -52,15 +63,16 @@ class Reporte_excel_producto extends CI_Controller
 		$a = 2;
 		foreach($res as $obj){
 		
-        $this->excel->getActiveSheet()->setCellValue("A".$a, $obj->nom_producto);
-        $this->excel->getActiveSheet()->setCellValue("B".$a, $obj->marca);
-        $this->excel->getActiveSheet()->setCellValue("C".$a, $obj->codigo_int);
-        $this->excel->getActiveSheet()->setCellValue("D".$a, $obj->codigo_sat);
-        $this->excel->getActiveSheet()->setCellValue("E".$a, $obj->cantidad_prod);
-		$this->excel->getActiveSheet()->setCellValue("F".$a, $obj->descripcion);
-		$this->excel->getActiveSheet()->setCellValue("G".$a, $obj->precio_cu);
-		$this->excel->getActiveSheet()->setCellValue("H".$a, $obj->precio_menudeo);
-		$this->excel->getActiveSheet()->setCellValue("I".$a, $obj->precio_mayoreo);
+        $this->excel->getActiveSheet()->setCellValue("A".$a, $obj->id_producto);
+        $this->excel->getActiveSheet()->setCellValue("B".$a, $obj->nom_producto);
+        $this->excel->getActiveSheet()->setCellValue("C".$a, $obj->marca);
+        $this->excel->getActiveSheet()->setCellValue("D".$a, $obj->codigo_int);
+        $this->excel->getActiveSheet()->setCellValue("E".$a, $obj->codigo_sat);
+        $this->excel->getActiveSheet()->setCellValue("F".$a, $obj->cantidad_prod);
+		$this->excel->getActiveSheet()->setCellValue("G".$a, $obj->descripcion);
+		$this->excel->getActiveSheet()->setCellValue("H".$a, $obj->precio_cu);
+		$this->excel->getActiveSheet()->setCellValue("I".$a, $obj->precio_menudeo);
+		$this->excel->getActiveSheet()->setCellValue("J".$a, $obj->precio_mayoreo);
         $a++;
 		}
 		    

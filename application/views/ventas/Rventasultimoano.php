@@ -16,10 +16,13 @@ $(document).ready(function()
 	<h2>VENTAS DEL ULTIMO AÑO</h2>
 	</div>
 	<hr>
-		<div>
+	<div class="container-fluid">
+		<div class="col-auto my-1">
             <input type="button" value="Reporte en PDF" class="btn btn-danger" name='ultimoano' id="ultimoano">
     </div>
 		<br>
+		<div class="col-sm-12 col-md-12 col-lg-12">
+
 		<table class="table table-sm table-bordered">
 		<thead>
 		<tr class="bg-primary">
