@@ -68,7 +68,7 @@ $(document).ready(function(){
 	//REFRESCA LA PAGINA
 	$("#cancelarventa").click(function(){
 				$.ajax({
-					url: 'http://localhost:8080/systelecoms/index.php/ventas/Ticket_venta/ImprimirTicket',
+					url: 'http://localhost:8080/systelecoms/assets/Ticket_venta.php',
 					type: 'POST',
 					success: function(response){
 							if(response==1){

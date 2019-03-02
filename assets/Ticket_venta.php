@@ -18,7 +18,7 @@ use Mike42\Escpos\PrintConnectors\WindowsPrintConnector;
 	desde el panel de control
 */
 
-$nombre_impresora = "pdf"; 
+$nombre_impresora = "EPSON L220 Series"; 
 
 
 $connector = new WindowsPrintConnector($nombre_impresora);
