@@ -24,6 +24,7 @@ $(document).ready(function(){
 	$("#limpiar_empleado").on("click", function()
 	{
 				$("#codigo_empleado").val("");
+				$("#id_empleado").val("");
 				$("#nom_empleado").val("");
 				$("#ap_empleado").val("");
 				$("#am_empleado").val("");		

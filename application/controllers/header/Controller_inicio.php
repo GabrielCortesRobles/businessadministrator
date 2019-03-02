@@ -108,13 +108,14 @@ class Controller_inicio extends CI_controller
 			else
 			{
 				$this->load->model('ventas/Model_ventas');
-				$venta['venta'] = $this->Model_ventas->sesion_venta($id_empleado);
+				$venta['emp'] = $this->Model_ventas->sesion_venta($id_empleado);
 				$venta['venta1'] = $this->Model_ventas->cliente_mostrador();
 				$this->load->view("header/Header");
 				$this->load->view("producto/Modal_alta_producto");
 				$this->load->view("empleado/Modal_alta_empleado");
 				$this->load->view("proveedor/Modal_alta_proveedores");
 				$this->load->view("cliente/Modal_alta_cliente");
+				//echo $emp[0]->nom_empleado;
 				$this->load->view("ventas/Modulo_venta1",$venta);
 			}
 		}

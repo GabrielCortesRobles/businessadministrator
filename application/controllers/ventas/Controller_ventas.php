@@ -52,9 +52,29 @@ class Controller_ventas extends CI_controller
 				$this->load->model('ventas/Model_ventas');
 				$this->Model_ventas->insertar_venta($id_cliente,$id_empleado,$total,$recibido_venta,$cambio_venta,$estado);
 				$this->Model_ventas->insertar_detalleventa($productos);
-				$this->Model_ventas->actualizaproductos($productos);
-			
 			}
+	/*-------------------------------------------- Funcion para actualizar las existencias del producto --------------------------------------------*/
+	/*----------------------------------------------------------------------------------------------------------------------------------
+	Descripcion: En esta funcion se reciven los datos por ajax del archivo agrega_producto.js para actualizar las existencias del producto
+	al momento de dar click en el boton de agregar en el modulo de venta
+	----------------------------------------------------------------------------------------------------------------------------------*/
+	public function actualizar_prod()
+	{
+		$id_producto	=	json_decode($_POST['id_producto']);
+		$cant			=	json_decode($_POST['cant']);
+		$this->Model_ventas->actualizaproductos($id_producto,$cant);
+	}
+	/*-------------------------------------------- Funcion para actualizar las existencias del producto --------------------------------------------*/
+	/*----------------------------------------------------------------------------------------------------------------------------------
+	Descripcion: En esta funcion se reciven los datos por ajax del archivo agrega_producto.js para actualizar las existencias del producto
+	al momento de dar click en el boton de eliminar en la tabla del modulo de venta
+	----------------------------------------------------------------------------------------------------------------------------------*/
+	public function actualizar_prod2()
+	{
+		$id_producto	=	json_decode($_POST['id_producto']);
+		$cant			=	json_decode($_POST['cant']);
+		$this->Model_ventas->actualizaproductos2($id_producto,$cant);
+	}
 	
 	// -------------------------- Modelo --------------------------------------
 

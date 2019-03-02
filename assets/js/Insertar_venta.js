@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	//INSERTA LA VENTA EN LA TABLA VENTAS
 $("#enviar_venta").click(function(){	
-			var id_cliente=$("#id_cliente").val();
+			var id_cliente=$("#mvid_cliente").val();
 			var id_empleado=$("#id_empleado").val();
 			var total=$("#total").val();
 			var recibido_venta=$("#recibido_venta").val();

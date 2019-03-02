@@ -51,22 +51,24 @@ $(document).ready(function(){
 		   });
 		   
 	//BUSCA LOS DATOS EN LA BASE EN LA BASE DE TADOS EN LA TABLA CLIENTE
-	$("[name=nom_cliente]").focusout(function(){
-		var nom_cliente=$("#nom_cliente").val();
-		var am_cliente=$("#am_cliente").val();
-		var ap_cliente=$("#ap_cliente").val();
+	$("#mvid_cliente").focusout(function(){
+		var id_cliente=$("#mvid_cliente").val();
+	//		alert(nom_cliente);
+	//	var am_cliente=$("#am_cliente").val();
+	//	var ap_cliente=$("#ap_cliente").val();
 		$.ajax({
 			url: "http://localhost:8080/systelecoms/index.php/cliente/Controller_buscar_cliente/buscar_cliente",
-			data: {"nom_cliente":nom_cliente, "am_cliente":am_cliente, "ap_cliente":ap_cliente},
+			data: {"id_cliente":id_cliente},
 			type: "POST",
 			
 			success: function(result){
 				var $datos = $.parseJSON(result);
-				$("#id_cliente").val($datos[0].id_cliente);
-				$("#nom_cliente").val($datos[0].nom_cliente);
-				$("#ap_cliente").val($datos[0].ap_cliente);
-				$("#am_cliente").val($datos[0].am_cliente);
-				$("#rfc_cliente").val($datos[0].rfc_cliente);
+			
+				$("#mvid_cliente").val($datos[0].id_cliente);
+				$("#mvnom_cliente").val($datos[0].nom_cliente);
+				$("#mvap_cliente").val($datos[0].ap_cliente);
+				$("#mvam_cliente").val($datos[0].am_cliente);
+				$("#mvrfc_cliente").val($datos[0].rfc_cliente);
 				
 			}
 		});
@@ -75,10 +77,10 @@ $(document).ready(function(){
 	//LIMPIA LOS CAMPOS DEL APARTADO CLIENTE EN EL MODULO DE VENTA
 	$("#limpiar_cliente").on("click", function()
 	{
-				$("#id_cliente").val("");
-				$("#rfc_cliente").val("");
-				$("#nom_cliente").val("");
-				$("#ap_cliente").val("");
-				$("#am_cliente").val("");		
+				$("#mvid_cliente").val("1");
+				$("#mvrfc_cliente").val("XAXX010101");
+				$("#mvnom_cliente").val("");
+				$("#mvap_cliente").val("");
+				$("#mvam_cliente").val("");		
 	});
  });

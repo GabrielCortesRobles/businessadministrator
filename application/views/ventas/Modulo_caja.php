@@ -11,7 +11,6 @@
 	<div class='container-fluid'>
 	<div class='row'>
 	<div class="col-md-8">
-	<div class="table-responsive">
 	<table class="table table-sm table-bordered">
 	<thead>
     <tr class="bg-primary">
@@ -45,18 +44,17 @@
 			echo "<td>".$fecha."</td>";
 			echo "<td hidden>".$hora_venta."</td>";
 			echo "<td>$ ".$total."</td>";
-			echo "<td><div class='row justify-content-center'><form action = '<?= base_url() ?>index.php/ventas/Controller_caja/caja/$id_venta' method='POST'>
+			echo "<td><div class='row justify-content-center'><form action = 'caja/$id_venta' method='POST'>
 					<button type='submit' class='btn btn-primary' >Ver</button>
 					</form>
 					<form action = '<?= base_url() ?>index.php/ventas/Controller_caja/eliminar_venta/$id_venta' method='POST'>
-					<button type='submit' class='btn btn-danger' >X</button>
+					<button type='submit' class='btn btn-danger' hidden >X</button>
 					</form></div></td>";
 		echo "</tr>";
 	echo "</tbody>";
 	}
 	?>
 </table>
-</div>
 </div>
 <div class="col-md-4">
 	<?php

@@ -44,9 +44,9 @@ class Model_ventas extends CI_Model
 		return $res->result();
 		}
 		//-----------------------------Buscar empleado por nombre del cliente-----------------------------------
-		public function buscar_cliente1($nom_cliente)
+		public function buscar_cliente1($id_cliente)
 		{
-		$sql = "SELECT * FROM cliente WHERE nom_cliente LIKE '%$nom_cliente%';";
+		$sql = "SELECT * FROM cliente WHERE id_cliente='$id_cliente';";
 		$res = $this->db->query($sql);
 		return $res->result();
 		}
@@ -97,13 +97,16 @@ class Model_ventas extends CI_Model
 				}
 			}	
 		//--------------------------------Actualizar las existencias del producto---------------------------------------------------------	
-		public function actualizaproductos($productos)
+		public function actualizaproductos($id_producto,$cant)
 		{
-			foreach($productos as $filas)
-			{
-				$sql = "CALL actualizaexistencias('$filas->id_producto','$filas->cant');";
-				$this->db->query($sql) OR DIE ("eRROR DE CONSULTA");
-			}
+			$sql = "CALL actualizaexistencias('$id_producto','$cant');";
+			$this->db->query($sql) OR DIE ("eRROR DE CONSULTA");
+		}
+		//--------------------------------Actualizar las existencias del producto---------------------------------------------------------	
+		public function actualizaproductos2($id_producto,$cant)
+		{
+			$sql = "CALL cancelaventa ('$id_producto','$cant');";
+			$this->db->query($sql) OR DIE ("eRROR DE CONSULTA");
 		}
 			
 		//---------------------------------------Busqueda de privilegios para el apartado de cobro en el modulo de venta --------------------------------------------------

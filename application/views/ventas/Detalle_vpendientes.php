@@ -3,7 +3,7 @@
 	<thead>
     <tr class="bg-primary">
       <th scope="col" hidden>ID DETALLE</th>
-      <th scope="col" hidden>ID VENTA</th>
+      <th scope="col" >ID</th>
       <th scope="col">PRODUCTO</th>
       <th scope="col">CANTIDAD</th>
       <th scope="col">SUBTOTAL</th>
@@ -21,7 +21,7 @@
 		echo "<tbody>";
 		echo "<tr>";
 			echo "<td hidden>".$id_detalle."</td>";
-			echo "<td hidden>".$id_venta."</td>";
+			echo "<td>".$id_venta."</td>";
 			echo "<td>".$nom_producto."</td>";
 			echo "<td>".$cantidad."</td>";
 			echo "<td>$ ".$subtotal."</td>";
