@@ -36,21 +36,22 @@ $("#enviar_venta").click(function(){
 				processData: false,
 				success: function(result){						
 					alert("Venta Exitosa!");
-				}
-			});
-			/*------------------------------------------------------------ se envian los datos al ticket ------------------------------------------------------------*/
-			$.ajax({
-				data: INFO,
-				type: "POST",
-				url: "http://localhost:8080/systelecoms/assets/Ticket_venta.php",
-				contentType: false,
-				processData: false,
-				success: function(response){						
-					if(response==1){
-						alert('Imprimiendo....');
-				}else{
-						alert('Error');
-				}
+					/*------------------------------------------------------------ se envian los datos al ticket ------------------------------------------------------------*/
+					$.ajax({
+						data: INFO,
+						type: "POST",
+						url: "http://localhost:8080/systelecoms/assets/Ticket_venta.php",
+						contentType: false,
+						processData: false,
+						success: function(response){						
+							if(response==1){
+								alert('Imprimiendo....');
+						}else{
+								alert('Error');
+						}
+						location.reload();
+						}
+					});
 				}
 			});
 	});

@@ -18,7 +18,7 @@ use Mike42\Escpos\PrintConnectors\WindowsPrintConnector;
 	desde el panel de control
 */
 
-$nombre_impresora = "pdf"; 
+$nombre_impresora = "EPSON L220 Series"; 
 
 
 $connector = new WindowsPrintConnector($nombre_impresora);
@@ -70,7 +70,7 @@ echo "<br>". $correo;
 	el logo
 */
 try{
-	$logo = EscposImage::load("Images/$imagen_empresa", false);
+	$logo = EscposImage::load("Images/$imagen_empresa", true);
     $printer->bitImage($logo);
 }catch(Exception $e){/*No hacemos nada si hay error*/}
 
@@ -96,28 +96,55 @@ $printer->text("-----------------------------"."\n");
 	/*Alinear a la izquierda para la cantidad y el nombre*/
 	$printer->setJustification(Printer::JUSTIFY_LEFT);
 /*-------------------------------------------- realizamos la consulta para imprimir los productos --------------------------------------------*/
+$query2 = $mysqli -> query ("SELECT MAX(id_venta)AS id_venta FROM ventas;");
+$res = mysqli_fetch_array($query2);
+$id_venta	=	$res['id_venta'];
+//echo "<br>". $id_venta;
 
-$productos		=	$_POST['datos'];
-$id_cliente		=	$_POST['id_cliente'];
-$id_empleado	=	$_POST['id_empleado'];
-$total			=	$_POST['total'];
-$recibido_venta	=	$_POST['recibido_venta'];
-$cambio_venta	=	$_POST['cambio_venta'];
-while ($prod = mysqli_fetch_array($query)) 
+$query3 = $mysqli -> query ("SELECT p.nom_producto, d.cantidad, d.subtotal 
+							FROM detalle_venta AS d
+							INNER JOIN producto AS p ON p.id_producto=d.id_producto 
+							WHERE id_venta='$id_venta';");
+
+while ($ventas = mysqli_fetch_array($query3))
 {
-
-	$printer->text("$prod[id_producto] \n");
-    $printer->text( "$prod[cant]  piezas    $subt   \n");
+	$producto	=	$ventas['nom_producto'];	
+	$cantidad	=	$ventas['cantidad'];	
+	$subtotal	=	$ventas['subtotal'];	
+	//echo "<br>". $producto;
+	//echo "<br>". $cantidad;
+	//echo "<br>". $subtotal;
+	
+	$printer->text("$producto \n");
+    $printer->text("$cantidad  piezas    $subtotal   \n");
 }
 /*
 	Terminamos de imprimir
 	los productos, ahora va el total
 */
+$id_cliente		=	$_POST['id_cliente'];
+$query4 = $mysqli -> query ("SELECT CONCAT(nom_cliente,' ', ap_cliente,' ',am_cliente) AS cliente FROM cliente WHERE id_cliente='$id_cliente';");
+$res1 = mysqli_fetch_array($query4);
+$cliente	=	$res1['cliente'];
+
+$id_empleado	=	$_POST['id_empleado'];
+$query5 = $mysqli -> query ("SELECT CONCAT(nom_empleado,' ', ap_empleado,' ',am_empleado) AS empleado FROM empleado WHERE id_empleado='$id_empleado';");
+$res2 = mysqli_fetch_array($query5);
+$empleado	=	$res2['empleado'];
+
+$total			=	$_POST['total'];
+$recibido_venta	=	$_POST['recibido_venta'];
+$cambio_venta	=	$_POST['cambio_venta'];
+
 $printer->text("-----------------------------"."\n");
 $printer->setJustification(Printer::JUSTIFY_RIGHT);
 $printer->text("SUBTOTAL: $total\n");
 $printer->text("IVA: $16.00\n");
 $printer->text("TOTAL: $total.00\n");
+$printer->text("PAGO CON: $recibido_venta\n");
+$printer->text("SU CAMBIO ES DE: $cambio_venta\n");
+$printer->text("LE ATENDIO: $empleado\n");
+$printer->text("COMPRADOR: $cliente\n");
 
 
 /*
