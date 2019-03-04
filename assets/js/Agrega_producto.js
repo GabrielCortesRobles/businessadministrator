@@ -67,6 +67,10 @@ $(document).ready(function(){
 	
 	//REFRESCA LA PAGINA
 	$("#cancelarventa").click(function(){
+		Location.reload();
+	});
+
+	$("#ticket").click(function(){
 				$.ajax({
 					url: 'http://localhost:8080/systelecoms/assets/Ticket_venta.php',
 					type: 'POST',

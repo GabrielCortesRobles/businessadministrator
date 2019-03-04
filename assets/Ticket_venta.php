@@ -18,7 +18,7 @@ use Mike42\Escpos\PrintConnectors\WindowsPrintConnector;
 	desde el panel de control
 */
 
-$nombre_impresora = "EPSON L220 Series"; 
+$nombre_impresora = "pdf"; 
 
 
 $connector = new WindowsPrintConnector($nombre_impresora);
@@ -40,12 +40,37 @@ echo 1;
 # Vamos a alinear al centro lo próximo que imprimamos
 $printer->setJustification(Printer::JUSTIFY_CENTER);
 
+/*-------------------------------------------- cargamos la base de datos --------------------------------------------*/
+$mysqli = new mysqli('www.rodihsa.com', 'rodihsa_user', '$Y$T3L3C0M@', 'rodihsa_systelecom');
+
+/*-------------------------------------------- realizamos la consulta para obtener los datos de la empresa --------------------------------------------*/
+$query = $mysqli -> query ("SELECT * FROM empresas WHERE id_empresa='1'");
+$consulta	=	mysqli_fetch_array($query);
+$empresa	=	$consulta['nom_empresa'];
+$imagen_empresa	=	$consulta['imagen_empresa'];
+$calle	=	$consulta['calle'];
+$num_calle	=	$consulta['num_calle'];
+$colonia	=	$consulta['colonia'];
+$municipio	=	$consulta['municipio'];
+$telefono	=	$consulta['telefono'];
+$correo	=	$consulta['correo'];
+/*
+echo "<br>". $empresa;
+echo "<br>". $imagen_empresa;
+echo "<br>". $calle;
+echo "<br>". $num_calle;
+echo "<br>". $colonia;
+echo "<br>". $municipio;
+echo "<br>". $telefono;
+echo "<br>". $correo;
+*/
+
 /*
 	Intentaremos cargar e imprimir
 	el logo
 */
 try{
-	$logo = EscposImage::load("geek.png", false);
+	$logo = EscposImage::load("Images/$imagen_empresa", false);
     $printer->bitImage($logo);
 }catch(Exception $e){/*No hacemos nada si hay error*/}
 
@@ -53,9 +78,10 @@ try{
 	Ahora vamos a imprimir un encabezado
 */
 
-$printer->text("\n"."Nombre de la Empresa" . "\n");
-$printer->text("Direccion: Orquídeas #151" . "\n");
-$printer->text("Tel: 454664544" . "\n");
+$printer->text("\n"."$empresa" . "\n");
+$printer->text("Direccion: $calle $num_calle, $colonia, $municipio" . "\n");
+$printer->text("Tel: $telefono" . "\n");
+$printer->text("E-mail: $correo" . "\n");
 #La fecha también
 date_default_timezone_set("America/Mexico_City");
 $printer->text(date("Y-m-d H:i:s") . "\n");
@@ -69,21 +95,29 @@ $printer->text("-----------------------------"."\n");
 */
 	/*Alinear a la izquierda para la cantidad y el nombre*/
 	$printer->setJustification(Printer::JUSTIFY_LEFT);
-    $printer->text("Producto Galletas\n");
-    $printer->text( "2  pieza    10.00 20.00   \n");
-    $printer->text("Sabrtitas \n");
-    $printer->text( "3  pieza    10.00 30.00   \n");
-    $printer->text("Doritos \n");
-    $printer->text( "5  pieza    10.00 50.00   \n");
+/*-------------------------------------------- realizamos la consulta para imprimir los productos --------------------------------------------*/
+
+$productos		=	$_POST['datos'];
+$id_cliente		=	$_POST['id_cliente'];
+$id_empleado	=	$_POST['id_empleado'];
+$total			=	$_POST['total'];
+$recibido_venta	=	$_POST['recibido_venta'];
+$cambio_venta	=	$_POST['cambio_venta'];
+while ($prod = mysqli_fetch_array($query)) 
+{
+
+	$printer->text("$prod[id_producto] \n");
+    $printer->text( "$prod[cant]  piezas    $subt   \n");
+}
 /*
 	Terminamos de imprimir
 	los productos, ahora va el total
 */
 $printer->text("-----------------------------"."\n");
 $printer->setJustification(Printer::JUSTIFY_RIGHT);
-$printer->text("SUBTOTAL: $100.00\n");
+$printer->text("SUBTOTAL: $total\n");
 $printer->text("IVA: $16.00\n");
-$printer->text("TOTAL: $116.00\n");
+$printer->text("TOTAL: $total.00\n");
 
 
 /*

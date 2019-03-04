@@ -35,11 +35,24 @@ $("#enviar_venta").click(function(){
 				contentType: false,
 				processData: false,
 				success: function(result){						
-					alert("Inserción Exitosa!");
-					location.reload();
+					alert("Venta Exitosa!");
 				}
 			});
-		
+			/*------------------------------------------------------------ se envian los datos al ticket ------------------------------------------------------------*/
+			$.ajax({
+				data: INFO,
+				type: "POST",
+				url: "http://localhost:8080/systelecoms/assets/Ticket_venta.php",
+				contentType: false,
+				processData: false,
+				success: function(response){						
+					if(response==1){
+						alert('Imprimiendo....');
+				}else{
+						alert('Error');
+				}
+				}
+			});
 	});
 	
 	$("#facturar").click(function(){
